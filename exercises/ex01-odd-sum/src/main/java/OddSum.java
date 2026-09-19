@@ -13,7 +13,7 @@ public class OddSum {
     public static void main(String[] args) {
         int[] numbers = {10, 20, 30, 40, 50};
         // Values at odd indices are 20 (index 1) and 40 (index 3), so this
-        // should print 60 once you have implemented oddSum correctly.
+        // should print 60 once you have implemented oddSum correctly.d
         System.out.println("Sum of values at odd indices: " + oddSum(numbers));
     }
 
@@ -31,6 +31,10 @@ public class OddSum {
         //       Recall arr.length gives the number of elements.
         //       You can index into arrays as we do in Python
         //       (e.g. arr[i] gives you the item at index i).
-        return 0;
+        int total = 0;
+        for (int i = 1; i < arr.length; i += 2) {
+            total += arr[i];
+        }
+        return total;
     }
 }
