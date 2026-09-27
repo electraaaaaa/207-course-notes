@@ -3,12 +3,11 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 7: Collections](#chapter-7-collections)
-  - [7.1. Implementations](#71-implementations)
-  - [7.2. The Java Collections Framework](#72-the-java-collections-framework)
-  - [7.3. Exercise](#73-exercise)
+    - [7.1. Implementations](#71-implementations)
+    - [7.2. The Java Collections Framework](#72-the-java-collections-framework)
+    - [7.3. Exercise](#73-exercise)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 # Chapter 7: Collections
 
@@ -50,6 +49,7 @@ these in your code.
 
 Java's `List` is similar to Python's `list` type, in that they grow and shrink as needed.
 `ArrayList` is one implementation. It offers quick access to elements by index.
+
 ```java
 public static void main(String[] args) {
     // Declare and initialize an ArrayList of Strings:

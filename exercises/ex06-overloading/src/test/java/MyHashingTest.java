@@ -2,7 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** Tests for {@link MyHashing}. Do NOT modify this file. */
+/**
+ * Tests for {@link MyHashing}. Do NOT modify this file.
+ */
 class MyHashingTest {
 
   @Test

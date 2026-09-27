@@ -1,6 +1,8 @@
 package designpatterns.structural.facade;
 
-/** Represents a single food item with a name and a price. */
+/**
+ * Represents a single food item with a name and a price.
+ */
 public class FoodItem {
 
   private final String name;
@@ -9,7 +11,7 @@ public class FoodItem {
   /**
    * Creates a food item with the given name and price.
    *
-   * @param it the name of the food item
+   * @param it    the name of the food item
    * @param price the price of the food item
    */
   public FoodItem(String it, double price) {

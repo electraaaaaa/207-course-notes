@@ -3,9 +3,9 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 6: Generics](#chapter-6-generics)
-  - [6.1. Custom Generic Classes](#61-custom-generic-classes)
-  - [6.2. bounded type parameters](#62-bounded-type-parameters)
-  - [6.3. Exercise](#63-exercise)
+    - [6.1. Custom Generic Classes](#61-custom-generic-classes)
+    - [6.2. bounded type parameters](#62-bounded-type-parameters)
+    - [6.3. Exercise](#63-exercise)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -22,12 +22,14 @@ When we declare a variable to refer to a list of integers,
 we specify the type as `List<Integer>`.
 
 Here is a quick example working with generics:
+
 ```java
 // note we don't need <Integer> on the right since it is implicit
 ArrayList<Integer> ma = new ArrayList<>();
 ma.add(1);
 Integer my_item = ma.get(0) + 5;
 ```
+
 The `<Integer>` specifies that we're working with an `ArrayList` containing
 only Integers: we don't need to do any casting.
 
@@ -92,6 +94,7 @@ public static <T extends Comparable<T>> void sortList(List<T> list) {
 ```
 
 In this example:
+
 - `<T extends Comparable<T>>` means that `T` must be a type that
   implements `Comparable<T>`.
 - This ensures that the `sortList` method can safely call `compareTo()` on

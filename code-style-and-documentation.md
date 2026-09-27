@@ -3,11 +3,11 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Code Style and Documentation](#code-style-and-documentation)
-  - ["Clean as You Code"](#clean-as-you-code)
-  - [Code style and CheckStyle](#code-style-and-checkstyle)
-  - [Documentation with JavaDoc](#documentation-with-javadoc)
-  - [Exercise: clean it up](#exercise-clean-it-up)
-  - [Summary](#summary)
+    - ["Clean as You Code"](#clean-as-you-code)
+    - [Code style and CheckStyle](#code-style-and-checkstyle)
+    - [Documentation with JavaDoc](#documentation-with-javadoc)
+    - [Exercise: clean it up](#exercise-clean-it-up)
+    - [Summary](#summary)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -37,8 +37,8 @@ will thank you.* In short:
    tests, this is especially important.
 
 The parts of a codebase that get touched most often become clean soonest, which
-saves time on every future change. Doing this kind of clean-up in its own commit
-(separate from feature work) is a good habit.
+saves time on every future change. Doing this kind of clean-up in its own commit (separate from feature work) is a good
+habit.
 
 ## Code style and CheckStyle
 
@@ -89,12 +89,11 @@ but that should be rare — new code is expected to be clean.
 Running Maven tells you about violations *after the fact*. It is much nicer to
 see them highlighted as you type, using the **CheckStyle-IDEA** plugin:
 
-1. Install the plugin: **Settings → Plugins → Marketplace**, search
-   *CheckStyle-IDEA*, install, and restart if prompted.
+1. Install the plugin: **Settings → Plugins → Marketplace**, search *CheckStyle-IDEA*, install, and restart if prompted.
 2. Configure it: **Settings → Tools → Checkstyle**. Click **+** and add the
    repo's own config file,
-   [code/checkstyle/google_checks.xml](code/checkstyle/google_checks.xml) — the
-   *same file the Maven build uses*. Give it a description like `CSC207 Checks`
+   [code/checkstyle/google_checks.xml](code/checkstyle/google_checks.xml) — the *same file the Maven build uses*. Give
+   it a description like `CSC207 Checks`
    and tick it as active. Do **not** use the plugin's built-in *Google Checks*:
    that is the plugin's own bundled copy and can differ from our pinned version.
    While you're in this panel, set the *Checkstyle version* dropdown (at the top)
@@ -181,8 +180,8 @@ handful of remaining warnings by hand.
 
 ## Documentation with JavaDoc
 
-Style is about *how* the code is written; documentation is about explaining
-*what it does and why*. In Java, the standard way to document a class or method
+Style is about *how* the code is written; documentation is about explaining *what it does and why*. In Java, the
+standard way to document a class or method
 is a **JavaDoc comment**: a block comment that starts with `/**` (two stars) and
 sits immediately above the thing it describes. It is the Java equivalent of a
 Python docstring, but with structured tags that tools understand.
@@ -208,13 +207,13 @@ public static int oddSum(int[] arr) {
   description, so make it count.
 - After the description come **block tags**, each on its own line:
 
-| Tag | Use it for |
-|-----|-----------|
-| `@param name` | one per parameter, describing what it is |
-| `@return` | what the method returns (omit for `void`) |
-| `@throws Type` (or `@exception`) | each exception the method may throw, and when |
-| `@deprecated` | mark something that should no longer be used, and what to use instead |
-| `@see` | point to a related class or method |
+| Tag                              | Use it for                                                            |
+|----------------------------------|-----------------------------------------------------------------------|
+| `@param name`                    | one per parameter, describing what it is                              |
+| `@return`                        | what the method returns (omit for `void`)                             |
+| `@throws Type` (or `@exception`) | each exception the method may throw, and when                         |
+| `@deprecated`                    | mark something that should no longer be used, and what to use instead |
+| `@see`                           | point to a related class or method                                    |
 
 - Two **inline tags** are especially handy inside descriptions:
   `{@code x}` formats `x` as code (great for parameter names, literals, and
@@ -267,8 +266,8 @@ breaking them.
    ```
    Or, in IntelliJ, open `Rectangle.java` and read the warnings inline / in the
    CheckStyle tool window, as described above.
-3. Fix every violation — adjust the formatting and write proper JavaDoc
-   (`@param`, `@return`) — until `checkstyle:check` reports **0 violations**.
+3. Fix every violation — adjust the formatting and write proper JavaDoc (`@param`, `@return`) — until `checkstyle:check`
+   reports **0 violations**.
 4. Re-run the tests to confirm you didn't change the behaviour. Both commands
    should pass.
 

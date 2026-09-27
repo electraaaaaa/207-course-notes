@@ -1,6 +1,8 @@
 package designpatterns.creational.factory.shapes;
 
-/** A rectangle shape. */
+/**
+ * A rectangle shape.
+ */
 public class Rectangle implements Shape {
 
   @Override

@@ -3,17 +3,17 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 13: Refactoring Techniques](#chapter-13-refactoring-techniques)
-  - [13.1. What is refactoring?](#131-what-is-refactoring)
-  - [13.2. `Extract Method`](#132-extract-method)
-  - [13.3. `Change Method Declaration`](#133-change-method-declaration)
-  - [13.4. `Encapsulate Fields`](#134-encapsulate-fields)
-  - [13.5. `Split Loop`](#135-split-loop)
-  - [13.6. `Slide Statements`](#136-slide-statements)
-  - [13.7. `Replace Constructor with Builder`](#137-replace-constructor-with-builder)
-  - [13.8. `Replace Constructor with Factory Method`](#138-replace-constructor-with-factory-method)
-  - [13.9. Exercises](#139-exercises)
-  - [13.10. Additional Reading:](#1310-additional-reading)
-  - [13.11. Helpful links:](#1311-helpful-links)
+    - [13.1. What is refactoring?](#131-what-is-refactoring)
+    - [13.2. `Extract Method`](#132-extract-method)
+    - [13.3. `Change Method Declaration`](#133-change-method-declaration)
+    - [13.4. `Encapsulate Fields`](#134-encapsulate-fields)
+    - [13.5. `Split Loop`](#135-split-loop)
+    - [13.6. `Slide Statements`](#136-slide-statements)
+    - [13.7. `Replace Constructor with Builder`](#137-replace-constructor-with-builder)
+    - [13.8. `Replace Constructor with Factory Method`](#138-replace-constructor-with-factory-method)
+    - [13.9. Exercises](#139-exercises)
+    - [13.10. Additional Reading:](#1310-additional-reading)
+    - [13.11. Helpful links:](#1311-helpful-links)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -23,12 +23,15 @@ This chapter covers some common refactoring techniques. For each technique, ther
 followed by a link to documentation for how to apply the technique in IntelliJ or a short explanation if
 IntelliJ doesn't support the refactoring technique directly.
 
-> There are lots more refactoring techniques, but the goal here is to give a brief introduction to some of the most common ones.
+> There are lots more refactoring techniques, but the goal here is to give a brief introduction to some of the most
+> common ones.
 
 ## 13.1. What is refactoring?
 
-The process of _refactoring_ refers to when programmers make a series of changes that improve the design of the software — but without changing the behaviour.
+The process of _refactoring_ refers to when programmers make a series of changes that improve the design of the
+software — but without changing the behaviour.
 There are lots of reasons for this:
+
 - to make the code easier for other programmers to understand and navigate (and debug),
 - to make it easier to automatically test, and
 - to make it easier to add new features.
@@ -46,20 +49,23 @@ Let's take a look at a few common refactoring techniques!
 ## 13.2. `Extract Method`
 
 This refactoring technique will likely feel very familiar to you from your first-year CS courses.
-When developing code, you are generally advised to write helper methods (or functions) to break the code into smaller, more meaningful snippets. This can help greatly with understandability
+When developing code, you are generally advised to write helper methods (or functions) to break the code into smaller,
+more meaningful snippets. This can help greatly with understandability
 and, potentially, testability of your code. If the author of the code wrote all the logic inside the body
 of a single method, then you would need to apply Extract Method to move the code for
 a subtask into a separate helper method. Depending on the purpose and context of the extracted method,
 you may choose to make it private and possibly static.
 
-> * You can make a method static if it only uses its parameters. (It may also use static variables and methods in its class.)
+> * You can make a method static if it only uses its parameters. (It may also use static variables and methods in its
+    class.)
 > * Choose a good name when you extract the method to clearly convey its purpose. Method names are usually verb phrases.
 
 Once you apply the Extract Method technique, the intention of the code should be much clearer. An interested
 programmer can still easily trace through to the implementation of the helper if they need to know the details,
 but they are no longer forced to see them if they aren't important.
 
-You may find that you need to apply this technique several times for complicated methods with several logical steps involved
+You may find that you need to apply this technique several times for complicated methods with several logical steps
+involved
 in a computation.
 
 > See: https://www.jetbrains.com/help/idea/extract-method.html
@@ -68,7 +74,8 @@ in a computation.
 
 ## 13.3. `Change Method Declaration`
 
-This refactoring technique involves modifying how a method is defined, such as altering what its parameters are. When doing so,
+This refactoring technique involves modifying how a method is defined, such as altering what its parameters are. When
+doing so,
 one must be careful to update any client code, as well as the body of the method being altered.
 
 In IntelliJ, `Change Signature` helps you perform such a refactoring.
@@ -79,15 +86,20 @@ In IntelliJ, `Change Signature` helps you perform such a refactoring.
 
 ## 13.4. `Encapsulate Fields`
 
-In Java, the convention is to make instance variables as private as possible. Transitioning from Python programming, where
-we tend to default to public attributes, you may not yet be in the habit of declaring your data to be private. This refactoring
-involves changing the access modifiers on your instance variables, introducing getters and setters as needed to provide appropriate
+In Java, the convention is to make instance variables as private as possible. Transitioning from Python programming,
+where
+we tend to default to public attributes, you may not yet be in the habit of declaring your data to be private. This
+refactoring
+involves changing the access modifiers on your instance variables, introducing getters and setters as needed to provide
+appropriate
 access to your data, and updating any client or implementation code to use the getters and setters where the data was
 directly accessed previously.
 
-> * You can use IntelliJ's support for this to save you time. Declare your instance variables, then select `Refactoring -> Encapsulate Fields...`
+> * You can use IntelliJ's support for this to save you time. Declare your instance variables, then select
+    `Refactoring -> Encapsulate Fields...`
 > * Declaring an instance variable to be public will be flagged by SonarQube. You can read more about the issue at
-https://rules.sonarsource.com/java/RSPEC-1104/ along with ways to fix it, with one of the ways being to encapsulate fields.
+    https://rules.sonarsource.com/java/RSPEC-1104/ along with ways to fix it, with one of the ways being to encapsulate
+    fields.
 
 > See: https://www.jetbrains.com/help/idea/encapsulate-fields.html
 
@@ -98,27 +110,34 @@ https://rules.sonarsource.com/java/RSPEC-1104/ along with ways to fix it, with o
 Sometimes we lump together several computations within a single block of iterative code. When we do this, it can become
 difficult to extract related blocks of functionality from our code through refactoring techniques like `Extract Method`.
 
-As the name suggests, this technique involves splitting a loop out into separate loops so that each loop performs an independent computation.
+As the name suggests, this technique involves splitting a loop out into separate loops so that each loop performs an
+independent computation.
 
 For example, think of a time you looped over a list of values and had two accumulator variables.
-Applying this refactoring, you would instead perform two iterations over the list: one to accumulate the first variable and one
+Applying this refactoring, you would instead perform two iterations over the list: one to accumulate the first variable
+and one
 to accumulate the second variable.
 
 Once these loops are split, it takes us one step closer to being able to apply `Extract Method` to then
-hide the existence of the loops entirely from the reader of the code, enhancing the understandability of your code. Of course,
+hide the existence of the loops entirely from the reader of the code, enhancing the understandability of your code. Of
+course,
 assuming we are still defining our accumulator variables above the first loop, we still don't have the code completely
 split. This is where the next refactoring technique will help us out.
 
-> Note: this refactoring is not directly supported by IntelliJ, but is straightforward to implement using copy+paste followed by
+> Note: this refactoring is not directly supported by IntelliJ, but is straightforward to implement using copy+paste
+> followed by
 > deleting the duplicated parts of the loop bodies.
 
 * * *
 
 ## 13.6. `Slide Statements`
 
-This technique simply refers to moving lines of code around to help group together code in more meaningful ways. For example,
-continuing with the example from above, we may want to move the declaration of each accumulator variable so that they are defined
-immediately before each of their corresponding accumulator loops. Once this is done, it would then be possible to apply our
+This technique simply refers to moving lines of code around to help group together code in more meaningful ways. For
+example,
+continuing with the example from above, we may want to move the declaration of each accumulator variable so that they
+are defined
+immediately before each of their corresponding accumulator loops. Once this is done, it would then be possible to apply
+our
 favourite `Extract Method` technique.
 
 This can be achieved using cut+paste, but it turns out IntelliJ has shortcuts which allow you to move lines of code.
@@ -129,7 +148,8 @@ This can be achieved using cut+paste, but it turns out IntelliJ has shortcuts wh
 
 ## 13.7. `Replace Constructor with Builder`
 
-This technique involves refactoring how objects are constructed. The idea is to introduce a builder class that is responsible for constructing instances of the class in steps.
+This technique involves refactoring how objects are constructed. The idea is to introduce a builder class that is
+responsible for constructing instances of the class in steps.
 
 > See: https://www.jetbrains.com/help/idea/replace-constructor-with-builder.html
 
@@ -158,8 +178,8 @@ Practise these refactorings in the `ex17-refactoring` module under the
   a single `double` constructor makes call sites ambiguous (Celsius or
   Fahrenheit?). Add the static factory methods `fromCelsius` and `fromFahrenheit`
   so the intent is clear, then run
-  [TemperatureTest.java](exercises/ex17-refactoring/src/test/java/TemperatureTest.java).
-  (This one starts red and turns green when you're done.)
+  [TemperatureTest.java](exercises/ex17-refactoring/src/test/java/TemperatureTest.java). (This one starts red and turns
+  green when you're done.)
 - **Exercise 17b — Extract Method and friends** (§13.2, §13.5, §13.6). This one
   works the other way around: the tests for
   [OrderSummary.java](exercises/ex17-refactoring/src/main/java/OrderSummary.java)
@@ -170,15 +190,15 @@ Practise these refactorings in the `ex17-refactoring` module under the
   and `Extract Method`, and replace the magic numbers with named constants —
   **keeping [OrderSummaryTest.java](exercises/ex17-refactoring/src/test/java/OrderSummaryTest.java)
   green the whole way**. Remember the rule from §13.1: refactoring must not change
-  behaviour. Re-run the tests after each step, and let IntelliJ do the work with
-  **Extract Method** (Ctrl+Alt+M / ⌥⌘M).
+  behaviour. Re-run the tests after each step, and let IntelliJ do the work with **Extract Method** (Ctrl+Alt+M / ⌥⌘M).
 
 * * *
 
 ## 13.10. Additional Reading:
 
 Refactoring: second edition by Martin Fowler
-Free first chapter: https://www.thoughtworks.com/content/dam/thoughtworks/documents/books/bk_Refactoring2-free-chapter_en.pdf
+Free first
+chapter: https://www.thoughtworks.com/content/dam/thoughtworks/documents/books/bk_Refactoring2-free-chapter_en.pdf
 
 Overview of refactoring which highlights some of these and other refactoring techniques supported by IntelliJ:
 https://www.jetbrains.com/help/idea/tutorial-introduction-to-refactoring.html

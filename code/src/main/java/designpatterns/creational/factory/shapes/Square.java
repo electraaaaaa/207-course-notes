@@ -1,6 +1,8 @@
 package designpatterns.creational.factory.shapes;
 
-/** A square shape. */
+/**
+ * A square shape.
+ */
 public class Square implements Shape {
 
   @Override

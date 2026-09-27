@@ -1,6 +1,8 @@
 package designpatterns.creational.builder.withbuilder;
 
-/** Builds {@link Pizza} instances step by step using a fluent interface. */
+/**
+ * Builds {@link Pizza} instances step by step using a fluent interface.
+ */
 public class PizzaBuilder {
   private String size;
   private boolean cheese = false;

@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/** Tests for {@link Gotchas}. Do NOT modify this file. */
+/**
+ * Tests for {@link Gotchas}. Do NOT modify this file.
+ */
 class GotchasTest {
 
   @Test

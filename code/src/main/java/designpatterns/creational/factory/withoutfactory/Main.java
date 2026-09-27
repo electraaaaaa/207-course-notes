@@ -5,11 +5,14 @@ import designpatterns.creational.factory.shapes.Rectangle;
 import designpatterns.creational.factory.shapes.Shape;
 import designpatterns.creational.factory.shapes.Square;
 
-/** Demonstrates creating shapes without using a factory. */
+/**
+ * Demonstrates creating shapes without using a factory.
+ */
 public class Main {
 
   // this is essentially the simple factory, but we would need to rewrite this same conditional
   // everywhere in our code where we need to check what kind of shape is needed.
+
   /**
    * Creates and draws a shape based on a hard-coded type.
    *

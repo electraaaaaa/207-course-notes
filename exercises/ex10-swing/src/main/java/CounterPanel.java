@@ -6,16 +6,16 @@ import javax.swing.SwingUtilities;
 
 /**
  * Exercise (Chapter 4: GUIs with Swing) — handling button clicks.
- *
+ * <p>
  * This panel shows a label and a button. Your task is to make clicking the
  * button increment a counter and update the label to {@code "Count: N"}. You do
  * this by adding an <em>action listener</em> to the button, as described in
  * Chapter 4.3. Edit only this file.
- *
+ * <p>
  * You can run {@code main} to see the window and click the button yourself, and
  * the tests click the button for you (with {@code button.doClick()}) and check
  * the label.
- *
+ * <p>
  * Relevant reading: 4.3 Handling button clicks.
  */
 public class CounterPanel extends JPanel {
@@ -24,7 +24,9 @@ public class CounterPanel extends JPanel {
   private final JButton button = new JButton("Click me");
   private final JLabel label = new JLabel("Count: 0");
 
-  /** Builds the panel and wires up the button. */
+  /**
+   * Builds the panel and wires up the button.
+   */
   public CounterPanel() {
     add(label);
     add(button);
@@ -52,15 +54,17 @@ public class CounterPanel extends JPanel {
     return label;
   }
 
-  /** Shows the panel in a window so you can click the button yourself. */
+  /**
+   * Shows the panel in a window so you can click the button yourself.
+   */
   public static void main(String[] args) {
     SwingUtilities.invokeLater(
-        () -> {
-          JFrame frame = new JFrame("Counter");
-          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-          frame.setContentPane(new CounterPanel());
-          frame.pack();
-          frame.setVisible(true);
-        });
+      () -> {
+        JFrame frame = new JFrame("Counter");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(new CounterPanel());
+        frame.pack();
+        frame.setVisible(true);
+      });
   }
 }

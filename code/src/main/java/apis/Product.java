@@ -19,20 +19,20 @@ public class Product {
   /**
    * Creates a product.
    *
-   * @param barcode the product's barcode (its Open Food Facts identifier)
-   * @param name the product name
-   * @param brands the brand(s), as a comma-separated string
-   * @param nutriScoreGrade the Nutri-Score grade, "a" (best) through "e" (worst), or "?" if unknown
+   * @param barcode           the product's barcode (its Open Food Facts identifier)
+   * @param name              the product name
+   * @param brands            the brand(s), as a comma-separated string
+   * @param nutriScoreGrade   the Nutri-Score grade, "a" (best) through "e" (worst), or "?" if unknown
    * @param energyKcalPer100g energy in kcal per 100g, or NaN if unknown
-   * @param sugarsPer100g sugars in grams per 100g, or NaN if unknown
+   * @param sugarsPer100g     sugars in grams per 100g, or NaN if unknown
    */
   public Product(
-      String barcode,
-      String name,
-      String brands,
-      String nutriScoreGrade,
-      double energyKcalPer100g,
-      double sugarsPer100g) {
+    String barcode,
+    String name,
+    String brands,
+    String nutriScoreGrade,
+    double energyKcalPer100g,
+    double sugarsPer100g) {
     this.barcode = barcode;
     this.name = name;
     this.brands = brands;
@@ -98,7 +98,7 @@ public class Product {
   @Override
   public String toString() {
     return String.format(
-        "%s (%s) — Nutri-Score %s, %.0f kcal/100g, %.1fg sugar/100g",
-        name, brands, nutriScoreGrade.toUpperCase(), energyKcalPer100g, sugarsPer100g);
+      "%s (%s) — Nutri-Score %s, %.0f kcal/100g, %.1fg sugar/100g",
+      name, brands, nutriScoreGrade.toUpperCase(), energyKcalPer100g, sugarsPer100g);
   }
 }

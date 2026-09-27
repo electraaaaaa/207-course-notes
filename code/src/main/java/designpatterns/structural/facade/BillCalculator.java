@@ -1,6 +1,8 @@
 package designpatterns.structural.facade;
 
-/** Calculates the total amount for a bill by summing its order items. */
+/**
+ * Calculates the total amount for a bill by summing its order items.
+ */
 public class BillCalculator {
   double tempTotal = 0;
 

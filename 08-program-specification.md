@@ -3,27 +3,37 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 8: Program Specification](#chapter-8-program-specification)
-  - [8.1. From specification to classes: noun–verb analysis](#81-from-specification-to-classes-nounverb-analysis)
-  - [8.2. Checking your design: scenario walk-throughs](#82-checking-your-design-scenario-walk-throughs)
-  - [8.3. User stories](#83-user-stories)
-  - [8.4. Use cases](#84-use-cases)
-  - [8.5. Exercises](#85-exercises)
+    - [8.1. From specification to classes: noun–verb analysis](#81-from-specification-to-classes-nounverb-analysis)
+    - [8.2. Checking your design: scenario walk-throughs](#82-checking-your-design-scenario-walk-throughs)
+    - [8.3. User stories](#83-user-stories)
+    - [8.4. Use cases](#84-use-cases)
+    - [8.5. Exercises](#85-exercises)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Chapter 8: Program Specification
 
-Now that we have the fundamentals of OOP in Java out of the way, we are ready to think more deeply about how we go about developing a program.
-Before we can implement anything, we need an idea of **what** functionality the program should provide. This may initially take the form of a written specification. The specification would use words relevant to the domain that the program will be used in.
-For example, if developing software in a medical setting, words like "doctor", "medical records", "patient", and "insurance" are likely to appear.
+Now that we have the fundamentals of OOP in Java out of the way, we are ready to think more deeply about how we go about
+developing a program.
+Before we can implement anything, we need an idea of **what** functionality the program should provide. This may
+initially take the form of a written specification. The specification would use words relevant to the domain that the
+program will be used in.
+For example, if developing software in a medical setting, words like "doctor", "medical records", "patient", and
+"insurance" are likely to appear.
 
-As you know from your first-year courses, we can perform a noun-verb analysis of such a specification to arrive at an initial set of classes (with variables and methods) and abstractions (abstract classes and interfaces in Java) to model the specific domain. We refer to these classes that represent the data of the program as _entities_. These will be the building blocks of our program.
+As you know from your first-year courses, we can perform a noun-verb analysis of such a specification to arrive at an
+initial set of classes (with variables and methods) and abstractions (abstract classes and interfaces in Java) to model
+the specific domain. We refer to these classes that represent the data of the program as _entities_. These will be the
+building blocks of our program.
 
-The output of this first step is often a set of UML class diagrams summarizing the initial set of proposed entities for our system.
+The output of this first step is often a set of UML class diagrams summarizing the initial set of proposed entities for
+our system.
 Such diagrams can then be turned into code by developers.
 
-This is a great first step, but what is missing is the bigger picture of **how** instances of these classes will be used to actually fulfill the specification!
-This is where user stories come in as a systematic way to reason about specific aspects of the program's functionality and we begin
+This is a great first step, but what is missing is the bigger picture of **how** instances of these classes will be used
+to actually fulfill the specification!
+This is where user stories come in as a systematic way to reason about specific aspects of the program's functionality
+and we begin
 to put things together.
 
 We start by looking more closely at that first step — turning a specification
@@ -90,8 +100,8 @@ Now the interesting part. Look at the candidate classes and ask what they have
 in common and how they differ.
 
 **Owners and reviewers are both users.** Both log in with a username, and both may
-choose to be contacted by email. Rather than duplicating that, make `User` an
-**abstract class** holding `username`, `email`, and `logIn`, and let `Owner` and
+choose to be contacted by email. Rather than duplicating that, make `User` an **abstract class** holding `username`,
+`email`, and `logIn`, and let `Owner` and
 `Reviewer` extend it.
 
 **Not every restaurant has a liquor license.** Putting `license` and
@@ -166,49 +176,71 @@ A _user story_ describes a feature from the perspective of the user, and focuses
 Here are a couple user stories for a social media app:
 
 * As a user, I want to be able to send friend requests so that I can connect with people I know.
-* As a group administrator, I want to be able to hide posts that violate the code of conduct so that others can feel more comfortable participating.
+* As a group administrator, I want to be able to hide posts that violate the code of conduct so that others can feel
+  more comfortable participating.
 
-They follow a common, but optional, format: "As a [kind of user], I want to [accomplish a goal] so that [I receive some benefit]."
+They follow a common, but optional, format: "As a [kind of user], I want to [accomplish a goal] so
+that [I receive some benefit]."
 
-User stories are short on purpose. They give the team and client a starting point for discussing a feature; they are not usually a complete specification by themselves. A team may add acceptance criteria describing observable conditions that must be true for the story to be considered complete.
+User stories are short on purpose. They give the team and client a starting point for discussing a feature; they are not
+usually a complete specification by themselves. A team may add acceptance criteria describing observable conditions that
+must be true for the story to be considered complete.
 
 ### Choosing an appropriate scope
 
-User stories can describe work at very different scales. A story that covers many related goals is often called an _epic_, while an implementation task describes work to be done without expressing a user's goal.
+User stories can describe work at very different scales. A story that covers many related goals is often called an
+_epic_, while an implementation task describes work to be done without expressing a user's goal.
 
-For the course project, aim for a story that describes one focused user goal and is small enough for one team member to make meaningful progress on it. As a useful rule of thumb, each story should lead naturally to one use case in the program. This is a course-project heuristic rather than a rule followed by every software team.
+For the course project, aim for a story that describes one focused user goal and is small enough for one team member to
+make meaningful progress on it. As a useful rule of thumb, each story should lead naturally to one use case in the
+program. This is a course-project heuristic rather than a rule followed by every software team.
 
-| Scope | Example | Assessment |
-| --- | --- | --- |
-| Too broad | As a bank customer, I want an online banking platform so that I can manage all of my accounts. | This is an epic containing many goals, such as viewing an account, transferring money, and paying a bill. |
-| Appropriate | As a bank customer, I want to view the transactions in my savings account so that I can review my spending. | This describes one user goal that can become a use case. |
-| Too narrow | Create a table component that displays transactions. | This is an implementation task, not a user story. It does not say who benefits or why. |
+| Scope       | Example                                                                                                     | Assessment                                                                                                |
+|-------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Too broad   | As a bank customer, I want an online banking platform so that I can manage all of my accounts.              | This is an epic containing many goals, such as viewing an account, transferring money, and paying a bill. |
+| Appropriate | As a bank customer, I want to view the transactions in my savings account so that I can review my spending. | This describes one user goal that can become a use case.                                                  |
+| Too narrow  | Create a table component that displays transactions.                                                        | This is an implementation task, not a user story. It does not say who benefits or why.                    |
 
-The same distinction applies to an e-commerce application. "Manage products" is probably an epic; viewing products, updating a shopping cart, and updating a wish list are separate candidate stories. Creating a list of products or laying out a screen may be tasks needed to complete one of those stories.
+The same distinction applies to an e-commerce application. "Manage products" is probably an epic; viewing products,
+updating a shopping cart, and updating a wish list are separate candidate stories. Creating a list of products or laying
+out a screen may be tasks needed to complete one of those stories.
 
-Scope depends on the project and the team. If a story contains several distinct user goals, split it. If it only describes a class, algorithm, screen, or other implementation detail, identify the larger user goal that motivates the task.
+Scope depends on the project and the team. If a story contains several distinct user goals, split it. If it only
+describes a class, algorithm, screen, or other implementation detail, identify the larger user goal that motivates the
+task.
 
-For another introduction to story scope and acceptance criteria, see Atlassian's [User Stories with Examples and a Template](https://www.atlassian.com/agile/project-management/user-stories).
+For another introduction to story scope and acceptance criteria, see
+Atlassian's [User Stories with Examples and a Template](https://www.atlassian.com/agile/project-management/user-stories).
 
 ## 8.4. Use cases
 
 > Note: we'll cover these ideas in more detail later, but it is useful to start thinking through the process now.
 
-A _use case_ describes how an actor and a system interact to accomplish a goal. It adds behavioural detail to a user story: what starts the interaction, what normally happens, what can go wrong, and what outcome the system guarantees.
+A _use case_ describes how an actor and a system interact to accomplish a goal. It adds behavioural detail to a user
+story: what starts the interaction, what normally happens, what can go wrong, and what outcome the system guarantees.
 
-There is no single use-case format used by every software team. Some teams write detailed specifications, while others use a short description, acceptance criteria, or executable scenarios. The lightweight format below is practical for the course project because it makes the important decisions visible without requiring a large document.
+There is no single use-case format used by every software team. Some teams write detailed specifications, while others
+use a short description, acceptance criteria, or executable scenarios. The lightweight format below is practical for the
+course project because it makes the important decisions visible without requiring a large document.
 
 ### A lightweight use-case format
 
 * **Name:** an active verb phrase that states the actor's goal, such as "Send a friend request."
-* **Primary actor:** the external role that starts the use case in order to achieve a goal. The software system itself is not an actor. Other people or external systems involved may be listed as supporting actors.
-* **Preconditions:** facts that must already be true when the use case begins. They are assumptions, not steps that the use case performs.
+* **Primary actor:** the external role that starts the use case in order to achieve a goal. The software system itself
+  is not an actor. Other people or external systems involved may be listed as supporting actors.
+* **Preconditions:** facts that must already be true when the use case begins. They are assumptions, not steps that the
+  use case performs.
 * **Trigger:** the event that starts the use case.
-* **Success outcome:** the observable state of the system after the goal is achieved. A more detailed specification may also state what the system guarantees after failure.
-* **Main success scenario:** a numbered sequence showing the usual successful interaction between the actor and the system.
+* **Success outcome:** the observable state of the system after the goal is achieved. A more detailed specification may
+  also state what the system guarantees after failure.
+* **Main success scenario:** a numbered sequence showing the usual successful interaction between the actor and the
+  system.
 * **Extensions:** alternative or failure paths, tied to the step at which they can occur.
 
-Write the steps in terms of the actor's intent and the system's observable response. Include enough detail to remove important ambiguity, but avoid class names, method calls, database operations, and unnecessary interface details. Those are design and implementation decisions. For example, "the user asks to send a friend request" allows the interface designer to choose an appropriate button, menu item, or other control later.
+Write the steps in terms of the actor's intent and the system's observable response. Include enough detail to remove
+important ambiguity, but avoid class names, method calls, database operations, and unnecessary interface details. Those
+are design and implementation decisions. For example, "the user asks to send a friend request" allows the interface
+designer to choose an appropriate button, menu item, or other control later.
 
 Here is an example use case for the user story about sending a friend request:
 
@@ -237,26 +269,34 @@ Here is an example use case for the user story about sending a friend request:
 **Extensions:**
 
 * **2a.** The other user no longer accepts friend requests from this user.
-  1. The system explains that the request cannot be sent.
-  2. The system does not create a request, and the use case ends.
+    1. The system explains that the request cannot be sent.
+    2. The system does not create a request, and the use case ends.
 * **3a.** The system cannot record the request.
-  1. The system explains that the request was not sent and that the user may try again.
-  2. The use case ends with no pending request.
+    1. The system explains that the request was not sent and that the user may try again.
+    2. The use case ends with no pending request.
 
-Searching for a person and viewing their profile happen before this use case and could be use cases of their own. Similarly, the other user accepting or declining the request is a separate goal, **Respond to a Friend Request**, with a different primary actor. Keeping these goals separate makes each use case easier to understand, assign, implement, and test.
+Searching for a person and viewing their profile happen before this use case and could be use cases of their own.
+Similarly, the other user accepting or declining the request is a separate goal, **Respond to a Friend Request**, with a
+different primary actor. Keeping these goals separate makes each use case easier to understand, assign, implement, and
+test.
 
 ### From specification to design
 
-A use case says what behaviour the system must provide, but it does not prescribe the entire user interface or the classes that implement it. The team can next:
+A use case says what behaviour the system must provide, but it does not prescribe the entire user interface or the
+classes that implement it. The team can next:
 
 * add acceptance criteria or tests for the success and extension paths;
 * sketch the views before and after important interactions, including error states;
 * identify the entities and data access operations involved; and
 * design the Clean Architecture classes that realize the use case.
 
-In Clean Architecture, the use case interactor implements the application-specific rules for the goal. The controller, presenter, view model, and view connect those rules to the user interface. Do not turn every click or screen transition into its own interactor: design around a coherent user goal.
+In Clean Architecture, the use case interactor implements the application-specific rules for the goal. The controller,
+presenter, view model, and view connect those rules to the user interface. Do not turn every click or screen transition
+into its own interactor: design around a coherent user goal.
 
-Once the team chooses a scoped story to implement, the [feature development workflow](00-introduction-to-git.md#04-feature-development-workflow) gives one way to organize the implementation and review work.
+Once the team chooses a scoped story to implement,
+the [feature development workflow](00-introduction-to-git.md#04-feature-development-workflow) gives one way to organize
+the implementation and review work.
 
 ## 8.5. Exercises
 
@@ -275,13 +315,13 @@ Consider this specification:
 > currently on loan. Librarians can add new items to the catalogue and can waive
 > a member's late fee.*
 
-1. Underline the nouns and list the candidate classes. For each noun you
-   *reject*, say briefly why (attribute value, synonym, irrelevant, ...).
+1. Underline the nouns and list the candidate classes. For each noun you *reject*, say briefly why (attribute value,
+   synonym, irrelevant, ...).
 2. Circle the verb phrases and list the responsibilities. Assign each one to a
    class.
 3. Decide where **inheritance** and where an **interface** is warranted. Two
-   things worth thinking hard about: reference-only items versus borrowable ones
-   (books and DVDs differ only in their loan period — is that a subclass, or a
+   things worth thinking hard about: reference-only items versus borrowable ones (books and DVDs differ only in their
+   loan period — is that a subclass, or a
    field?), and what `Member` and `Librarian` have in common.
 4. Draw the resulting UML class diagram. See
    [§3.8 UML Class Diagrams](03-relationships-between-classes.md#38-uml-class-diagrams)
@@ -332,7 +372,8 @@ them.
 
 Consider a campus study-room booking application.
 
-> **User story:** As a student, I want to reserve an available study room for a particular time so that my group has a place to meet.
+> **User story:** As a student, I want to reserve an available study room for a particular time so that my group has a
+> place to meet.
 
 Assume the following requirements:
 
@@ -359,4 +400,6 @@ Review your draft with these questions:
 * Does the success outcome make the use case testable?
 * Have you avoided committing prematurely to UI widgets, classes, methods, or database details?
 
-As a scope check, compare the story above with "As a student, I want to manage all of my room bookings," which is likely an epic, and "Build the room-booking form," which is an implementation task. The exercise story sits between them: it expresses one useful, implementable user goal.
+As a scope check, compare the story above with "As a student, I want to manage all of my room bookings," which is likely
+an epic, and "Build the room-booking form," which is an implementation task. The exercise story sits between them: it
+expresses one useful, implementable user goal.

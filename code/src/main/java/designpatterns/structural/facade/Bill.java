@@ -3,7 +3,9 @@ package designpatterns.structural.facade;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Represents a bill holding an identifier, its order items and a total price. */
+/**
+ * Represents a bill holding an identifier, its order items and a total price.
+ */
 public class Bill {
 
   private final int id;
@@ -31,7 +33,7 @@ public class Bill {
   /**
    * Adds a food item with the given quantity to the bill.
    *
-   * @param it the food item to add
+   * @param it    the food item to add
    * @param quant the quantity of the food item
    */
   public void add(FoodItem it, int quant) {

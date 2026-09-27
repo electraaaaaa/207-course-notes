@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Adapter that makes a ticket tradable using inheritance. */
+/**
+ * Adapter that makes a ticket tradable using inheritance.
+ */
 public class ClassTicketAdapter extends Ticket implements Tradable {
   /*
    * Adapter (with inheritance))
@@ -18,7 +20,7 @@ public class ClassTicketAdapter extends Ticket implements Tradable {
   /**
    * Creates a class ticket adapter with the given ticket details.
    *
-   * @param id the ticket identifier
+   * @param id   the ticket identifier
    * @param show the show name
    * @param date the date of the show
    * @param seat the seat label
@@ -61,7 +63,9 @@ public class ClassTicketAdapter extends Ticket implements Tradable {
     return tradeHistory;
   }
 
-  /** Reverts the most recent trade, restoring the previous owner. */
+  /**
+   * Reverts the most recent trade, restoring the previous owner.
+   */
   public void tradeUndo() {
     int lastTrade = getTradeHistory().size() - 1;
     String tradeLogOfLastTrade = getTradeHistory().get(lastTrade);

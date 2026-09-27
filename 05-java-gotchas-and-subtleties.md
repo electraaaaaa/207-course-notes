@@ -3,10 +3,10 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 5: Java Gotchas and Subtleties](#chapter-5-java-gotchas-and-subtleties)
-  - [5.1. Shadowing](#51-shadowing)
-  - [5.2. Array Copy](#52-array-copy)
-  - [5.3. Autoboxing](#53-autoboxing)
-  - [5.4. Exercise](#54-exercise)
+    - [5.1. Shadowing](#51-shadowing)
+    - [5.2. Array Copy](#52-array-copy)
+    - [5.3. Autoboxing](#53-autoboxing)
+    - [5.4. Exercise](#54-exercise)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -16,6 +16,7 @@ In this chapter we'll highlight a few aspects of Java that sometimes get overloo
 when starting out with the language.
 
 ## 5.1. Shadowing
+
 Variable shadowing occurs when the same variable name is used in two different scopes.
 In Python, one example would be:
 
@@ -31,6 +32,7 @@ def f() -> None:
 ```
 
 Running `f()` would print out the following:
+
 ```
 g()'s x = 20
 f()'s x = 10
@@ -46,6 +48,7 @@ would disappear and the stack frame for `f()` would still be unchanged.
 You can open PyCharm and step through with the debugger for yourself to see this.
 
 In Java, we have a similar concept. For example, consider the following code:
+
 ```java
 public class ShadowExample {
     private int shadowedVariable = 10;
@@ -59,6 +62,7 @@ public class ShadowExample {
 ```
 
 When we call `ShadowExample.shadowingMethod()`, the following would be printed:
+
 ```
 20
 10
@@ -70,7 +74,9 @@ This is similar to what we saw previously with a constructor taking in a paramet
 with the same name as the instance variable it was assigned to (i.e., `this.name = name`).
 
 ## 5.2. Array Copy
+
 In Python, we could copy lists by creating a slice of them. For example:
+
 ```python
 lst = [1, 2, 3]
 lst_copy = lst[:]
@@ -83,6 +89,7 @@ however, would be an alias to `lst`: if we modify one, we modify the other.
 
 The same concept applies to Java, except arrays have a `clone` method. Notice how we switch
 to the Java naming conventions:
+
 ```java
 int[] lst = {1, 2, 3};
 int[] lstCopy = lst.clone();
@@ -94,6 +101,7 @@ are the same as what we had in our Python example.
 
 Furthermore, nested lists in Python behave the same as nested arrays in Java.
 In Python, if we had:
+
 ```python
 nested_lst = [[1, 2], [3, 4]]
 nested_lst_copy = nested_lst[:]
@@ -103,12 +111,14 @@ nested_lst_copy[0][0] = 7
 
 Then the inner nested list would be an alias, but the outer list wouldn't.
 In this example, we would get the following contents for each list:
+
 ```python
 >>> nested_lst
 [[7, 2], [3, 4]]
 >>> nested_lst_copy
 [[7, 2], [5, 6]]
 ```
+
 To make a deeper copy without any aliasing, we would need to make copies of
 every inner list.
 
@@ -117,6 +127,7 @@ outermost arrays, but not copies of inner arrays. To make a deeper copy,
 we would need to `clone()` all inner arrays.
 
 ## 5.3. Autoboxing
+
 In Java, we have to define types and adhere to our type declarations,
 otherwise our code will not compile. However, **autoboxing** is a conversion
 that the Java compiler makes automatically between primitive types and their
@@ -125,6 +136,7 @@ When converting from the wrapper class to the primitive it is referred to
 as **unboxing**.
 
 For instance, we can do:
+
 ```java
 int x = 4;
 Integer y = new Integer(x); // equivalently Integer y = x
@@ -139,6 +151,7 @@ the primitive type and let Java autobox and unbox as needed since this
 simplifies the code writing process for you.
 
 ### 5.3.1. Value Comparison
+
 Consider comparing `int` values and `Integer` objects.
 If **one operand is a primitive**, Java will **unbox** the `Integer`
 and compare values:
@@ -154,6 +167,7 @@ This makes sense, since if `b` had been autoboxed instead, then
 we might be in for a surprise as we'll see next!
 
 ### 5.3.2. Reference Comparison
+
 If **both operands are `Integer` objects**, `==` compares **references**,
 not values:
 
@@ -171,6 +185,7 @@ comparing objects. Luckily, your IDE will warn you since this is such a common
 source of bugs.
 
 ### 5.3.3. Integer Caching
+
 Similar to string interning that we saw previously,
 Java caches `Integer` values from **-128 to 127** for efficiency, so:
 
@@ -185,6 +200,7 @@ System.out.println(c == d); // false — not cached
 ```
 
 ### 5.3.4. Null Safety
+
 Unboxing a `null` `Integer` causes a `NullPointerException` at runtime:
 
 ```java

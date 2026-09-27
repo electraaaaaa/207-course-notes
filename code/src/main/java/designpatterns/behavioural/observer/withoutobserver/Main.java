@@ -1,6 +1,8 @@
 package designpatterns.behavioural.observer.withoutobserver;
 
-/** Demonstrates parcel tracking implemented without the observer pattern. */
+/**
+ * Demonstrates parcel tracking implemented without the observer pattern.
+ */
 public class Main {
 
   /**

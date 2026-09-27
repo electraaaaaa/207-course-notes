@@ -1,6 +1,8 @@
 package designpatterns.behavioural.strategy.withoutstrategy;
 
-/** An author that sorts books with insertion sort and displays them in reverse order. */
+/**
+ * An author that sorts books with insertion sort and displays them in reverse order.
+ */
 public class AuthorWithInsertionSortAndReverseOrderDisplay extends Author {
 
   /**
@@ -16,7 +18,9 @@ public class AuthorWithInsertionSortAndReverseOrderDisplay extends Author {
    * Sorts this Author's books using 'Insertion Sort' Algorithm.
    */
 
-  /** Sorts this Author's books using the insertion sort algorithm. */
+  /**
+   * Sorts this Author's books using the insertion sort algorithm.
+   */
   public void sortBooks() {
     for (int i = 1; i < books.size(); i++) {
       Book temp = books.get(i);
@@ -36,7 +40,9 @@ public class AuthorWithInsertionSortAndReverseOrderDisplay extends Author {
    * Display books in 'Reverse Order'.
    */
 
-  /** Displays this Author's books in reverse order. */
+  /**
+   * Displays this Author's books in reverse order.
+   */
   public void displayBooks() {
     for (int i = books.size() - 1; i >= 0; i--) {
       System.out.print("(" + books.get(i) + ")  ");

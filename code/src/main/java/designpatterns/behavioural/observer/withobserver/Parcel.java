@@ -3,23 +3,31 @@ package designpatterns.behavioural.observer.withobserver;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-/** An observable parcel with a tracking number and location. */
+/**
+ * An observable parcel with a tracking number and location.
+ */
 public class Parcel {
 
-  /** This Parcel's tracking number. */
+  /**
+   * This Parcel's tracking number.
+   */
   private final String trackingNumber;
 
-  /** This Parcel's location. */
+  /**
+   * This Parcel's location.
+   */
   private String location;
 
-  /** Helper class for making this class be observable. */
+  /**
+   * Helper class for making this class be observable.
+   */
   private final PropertyChangeSupport observableSupport;
 
   /**
    * Constructs a new Parcel with the given tracking number and location.
    *
    * @param trackingNumber This parcel's tracking number.
-   * @param location This parcel's location.
+   * @param location       This parcel's location.
    */
   public Parcel(String trackingNumber, String location) {
     this.trackingNumber = trackingNumber;

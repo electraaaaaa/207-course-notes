@@ -1,10 +1,10 @@
 /**
  * Exercise (Chapter 5: Java Gotchas and Subtleties) — shadowing, array copying,
  * and autoboxing.
- *
+ * <p>
  * Each method below has a subtle bug of the kind described in this chapter. Fix
  * all three so the tests pass. Edit only this file.
- *
+ * <p>
  * Relevant reading: 5.1 Shadowing, 5.2 Array Copy, 5.3 Autoboxing.
  */
 public class Gotchas {
@@ -28,8 +28,7 @@ public class Gotchas {
    * @param name the new name
    */
   public void setName(String name) {
-    // TODO: assign the parameter to the FIELD (hint: use `this`).
-    name = name;
+    this.name = name;
   }
 
   /**
@@ -41,9 +40,12 @@ public class Gotchas {
    * @return a copy whose inner arrays are also copies (nothing shared with grid)
    */
   public static int[][] deepCopy(int[][] grid) {
-    // TODO: build a new outer array and copy EACH inner array too, so that
-    //       nothing is shared with `grid`.
-    return grid.clone();
+    int[][] new_grid = grid.clone();
+    for (int i = 0; i < new_grid.length; i++) {
+      int[] inner_copy = grid[i].clone();
+      new_grid[i] = inner_copy;
+    }
+    return new_grid;
   }
 
   /**
@@ -57,7 +59,6 @@ public class Gotchas {
    * @return true iff a and b hold the same int value
    */
   public static boolean sameValue(Integer a, Integer b) {
-    // TODO: compare the VALUES, not the references.
-    return a == b;
+    return a.equals(b);
   }
 }

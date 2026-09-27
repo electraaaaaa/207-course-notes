@@ -1,6 +1,8 @@
 package designpatterns.behavioural.strategy.withoutstrategy;
 
-/** An author that sorts books with selection sort and displays them in natural order. */
+/**
+ * An author that sorts books with selection sort and displays them in natural order.
+ */
 public class AuthorWithSelectionSortAndNaturalOrderDisplay extends Author {
 
   /**
@@ -16,7 +18,9 @@ public class AuthorWithSelectionSortAndNaturalOrderDisplay extends Author {
    * Sort this Author's books using 'Selection Sort' Algorithm.
    */
 
-  /** Sorts this Author's books using the selection sort algorithm. */
+  /**
+   * Sorts this Author's books using the selection sort algorithm.
+   */
   public void sortBooks() {
     for (int i = 0; i < books.size() - 1; i++) {
 
@@ -41,7 +45,9 @@ public class AuthorWithSelectionSortAndNaturalOrderDisplay extends Author {
    * Display books in 'Natural Order'.
    */
 
-  /** Displays this Author's books in natural order. */
+  /**
+   * Displays this Author's books in natural order.
+   */
   public void displayBooks() {
 
     for (int i = 0; i < books.size(); i++) {

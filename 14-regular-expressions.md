@@ -3,15 +3,15 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 14: Regular Expressions](#chapter-14-regular-expressions)
-  - [Learning Objectives](#learning-objectives)
-  - [14.1. What is a regular expression?](#141-what-is-a-regular-expression)
-  - [14.2. Some Useful Regex Symbols with Examples](#142-some-useful-regex-symbols-with-examples)
-  - [14.3. Repeating Patterns with Quantifiers](#143-repeating-patterns-with-quantifiers)
-  - [14.4. Example: A Pattern for Java Instance Variable Names](#144-example-a-pattern-for-java-instance-variable-names)
-  - [14.5. Special symbols](#145-special-symbols)
-  - [14.6. Regex in Java](#146-regex-in-java)
-  - [14.7. What Can We Do with Regular Expressions?](#147-what-can-we-do-with-regular-expressions)
-  - [14.8. Exercises](#148-exercises)
+    - [Learning Objectives](#learning-objectives)
+    - [14.1. What is a regular expression?](#141-what-is-a-regular-expression)
+    - [14.2. Some Useful Regex Symbols with Examples](#142-some-useful-regex-symbols-with-examples)
+    - [14.3. Repeating Patterns with Quantifiers](#143-repeating-patterns-with-quantifiers)
+    - [14.4. Example: A Pattern for Java Instance Variable Names](#144-example-a-pattern-for-java-instance-variable-names)
+    - [14.5. Special symbols](#145-special-symbols)
+    - [14.6. Regex in Java](#146-regex-in-java)
+    - [14.7. What Can We Do with Regular Expressions?](#147-what-can-we-do-with-regular-expressions)
+    - [14.8. Exercises](#148-exercises)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -25,28 +25,34 @@
 
 ## 14.1. What is a regular expression?
 
-A regular expression (also called “regex”) is a sequence of characters that specifies a pattern describing a set of strings.
+A regular expression (also called “regex”) is a sequence of characters that specifies a pattern describing a set of
+strings.
 We say that a regex _matches_ the set of strings that satisfy its pattern.
 Conversely, a string _conforms_ to a regex if it satisfies the pattern described by that regex.
 
 As an example, consider the regular expression `.*o`.
 In this regex:
+
 - the `.` matches any character,
-- the `*` indicates that the pattern requires zero or more occurrences of the preceding element (in this case, the `.`), and
+- the `*` indicates that the pattern requires zero or more occurrences of the preceding element (in this case, the `.`),
+  and
 - the `o` matches the character `o`.
 
 Together, the full regex matches any string that ends with the letter `o`, such as "hello", "ceo", and "o".
 
-As this example demonstrates, regex give us a way to more concisely describe sets of strings that may be arbitrarily large!
+As this example demonstrates, regex give us a way to more concisely describe sets of strings that may be arbitrarily
+large!
 Let's explore the syntax of regex so that we can understand and define our own patterns.
 
 ## 14.2. Some Useful Regex Symbols with Examples
 
-We use `[` and `]` to define a choice of symbols. So `[abc]` will match "a", "b", or "c". 
+We use `[` and `]` to define a choice of symbols. So `[abc]` will match "a", "b", or "c".
 
-By inserting a hyphen (`-`) we can specify a range. So `[a-z]` will match any lower case letter such as "a", "h", or "x". 
+By inserting a hyphen (`-`) we can specify a range. So `[a-z]` will match any lower case letter such as "a", "h", or
+"x".
 
-Other examples include `[0-9]` or `\d` which both match any digit such as "0", "2", or "7", and `[a-zA-z0-9]' which will match strings like "b", "R", and "2".
+Other examples include `[0-9]` or `\d` which both match any digit such as "0", "2", or "7", and `[a-zA-z0-9]' which will
+match strings like "b", "R", and "2".
 
 Postal codes in Toronto all start with `M` and then alternate between numbers and letters, with a space in the middle.
 For example, "M0A 1B2" is a Toronto postal code.
@@ -72,7 +78,7 @@ A **character class** is a set of characters, like `[a-z]`, that specifies which
 Exactly one character from the set must occur.
 
 > We can then apply quantifiers from the previous section to
-specify repetitions and create more interesting patterns.
+> specify repetitions and create more interesting patterns.
 
 You can make your own character classes by using square brackets like
 `[q-z]` and `[AEIOU]`, or you can use a predefined character class.
@@ -92,22 +98,26 @@ The following table lists some common character classes:
 > Note that the definition of `\w` includes the `_` character.
 
 ### 14.3.2. Groups and Matching Strings with Repeated Characters
+
 While quantifiers allow us to repeat patterns, we may also want to repeat the _exact same_ matching characters.
 To do this, we need to specify a **group** with `(` and `)`.
 
-For example, suppose that we want a regex that will match any phone number of the form `xxx-xxx-xxxx` that starts with the same first three digits,
+For example, suppose that we want a regex that will match any phone number of the form `xxx-xxx-xxxx` that starts with
+the same first three digits,
 such as "**222**-987-5406", "**000**-232-3232", "**111**-111-1114".
 The following regex uses a group to accomplish this:
 
 `([0-9])\1\1-[0-9]{3}-[0-9]{4}`
 
 `\1` indicates that the characters from group `1` — in this case the character conforming to `[0-9]` — must be repeated.
-The second `\1` indicates that it needs to be repeated once more, so that same character must appear three times in a row!
+The second `\1` indicates that it needs to be repeated once more, so that same character must appear three times in a
+row!
 
 ### 14.3.3. Multiple Groups
 
 Each group is assigned a number based on the order in which its open bracket appears from left to right.
-For this reason, the only group in the above example was group `1`, which we wrote as `\1` when we wanted to refer to it later in the regex.
+For this reason, the only group in the above example was group `1`, which we wrote as `\1` when we wanted to refer to it
+later in the regex.
 
 For example, `(([de])f)\2\1` will repeat both groups. The strings that match are:
 "dfddf" and "efeef".
@@ -162,8 +172,8 @@ Here are some examples of strings which do not conform:
 > Do any of these strings conform to our regex?
 > "z3333", "aBcB041", "78a"
 
-
 ### 14.4.1. What if There Are No Anchors?
+
 In the previous example, we introduced anchors:
 
 - `^` matches the start of a string.
@@ -174,13 +184,15 @@ However, in practice, most practical regex implementations behave differently.
 They often check whether any _substring_ of the input conforms to the pattern, unless anchors are used.
 
 > In practice, when using regex in a programming language like Java, one must carefully read the
-> documentation, as sometimes anchors are implicitly included (i.e., a method will automatically be looking for full matches).
+> documentation, as sometimes anchors are implicitly included (i.e., a method will automatically be looking for full
+> matches).
 
 Here is a regular expression which has no anchors.
 
 ```[abc]C[a-e][24680]*[A-Z]```
 
-Because there are no anchors, a string will conform to this regex if _any_ substring contained within it conforms to the regex.
+Because there are no anchors, a string will conform to this regex if _any_ substring contained within it conforms to the
+regex.
 
 For example, the string "cCaA" conforms and so does "ABCcCcAa1A23",
 since they both contain a substring, "cCcA", that is consistent with the regex.
@@ -203,15 +215,17 @@ besides being an anchor as we saw before: it matches any character _except_ the 
 
 For example, `[^aeiouAEIOU]` matches anything that _isn’t_ a vowel.
 
-
 ### 14.5.1 Escaping the Meaning of a Symbol
 
 What if we wanted to include a period in our conforming string?
 To match strings like "1.2" or "3.8" we need some way to force a period to be included.
-Since `.` matches any character, not just periods, we will have to *escape* the period by writing a backslash in front of it like this: `\.`.
-By escaping the period, we indicate that its special meaning should be ignored, and `\.` matches precisely a literal "." character.
+Since `.` matches any character, not just periods, we will have to *escape* the period by writing a backslash in front
+of it like this: `\.`.
+By escaping the period, we indicate that its special meaning should be ignored, and `\.` matches precisely a literal "."
+character.
 
-So the regular expression that matches all single digit numbers followed by a single digit after the decimal looks like this: `[0-9]\.[0-9]`
+So the regular expression that matches all single digit numbers followed by a single digit after the decimal looks like
+this: `[0-9]\.[0-9]`
 
 ### 14.5.2. Logical operators
 
@@ -224,16 +238,22 @@ For example `[a-t&&r-z]` would match only the strings "r", "s", and "t".
 
 ## 14.6. Regex in Java
 
-In Java, you write regular expressions as strings, so you need to escape all of its backslashes. Instead of writing `\d` to match a single digit, you will have to write `"\\d"` in Java.
-This also means that escaping a backslash, which normally would look like this `\\`, in Java will look like `"\\\\"`, because each backslash has to be escaped separately.
+In Java, you write regular expressions as strings, so you need to escape all of its backslashes. Instead of writing `\d`
+to match a single digit, you will have to write `"\\d"` in Java.
+This also means that escaping a backslash, which normally would look like this `\\`, in Java will look like `"\\\\"`,
+because each backslash has to be escaped separately.
 
-The `String` class contains methods such as `split`, `matches`, `replaceAll`, and `replaceFirst` which all make use of regex if
+The `String` class contains methods such as `split`, `matches`, `replaceAll`, and `replaceFirst` which all make use of
+regex if
 you read their documentation.
 
-The [`Pattern`](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) class is used to represent a regex.
-It provides static methods `compile(String regex)` and `matches(String regex, String string)` which create a Pattern object
+The [`Pattern`](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) class is used to represent a
+regex.
+It provides static methods `compile(String regex)` and `matches(String regex, String string)` which create a Pattern
+object
 that represents the given regex string and matches a given regex string to a given string, respectively.
-We encourage you to read the documentation linked above for this class, as it gives a nice summary of regex syntax in Java.
+We encourage you to read the documentation linked above for this class, as it gives a nice summary of regex syntax in
+Java.
 
 For example, the documentation for `Pattern` provides the following basic usage example:
 
@@ -262,12 +282,15 @@ As we have seen, regex provides concise and expressive ways to describe patterns
 They allow us to perform various tasks, such as:
 
 - Find data in documents
-  - Examples: phone numbers in a file, email addresses on a webpage, CSC course codes in text, or performing “Find and Replace” in IntelliJ.
+    - Examples: phone numbers in a file, email addresses on a webpage, CSC course codes in text, or performing “Find and
+      Replace” in IntelliJ.
 
 - Validate input
-  - Examples: checking if a variable name follows Java naming conventions or if a password meets complexity requirements.
+    - Examples: checking if a variable name follows Java naming conventions or if a password meets complexity
+      requirements.
 
 Broadly, these tasks fall into two categories:
+
 - Extraction: locating substrings that conform to a pattern specified by a regex.
 - Validation: determining whether an entire string conforms to a pattern.
 
@@ -291,8 +314,8 @@ validation and extraction.
   this task uses the classes from §14.6. In
   [Extractor.java](exercises/ex18-regex/src/main/java/Extractor.java), implement
   `findCourseCodes` (find every course code in a passage of text using
-  `matcher.find()`), `findCourseNumbers` (pull just the digits out using a
-  **capturing group**), and `maskEmails` (replace every email address with `***`).
+  `matcher.find()`), `findCourseNumbers` (pull just the digits out using a **capturing group**), and `maskEmails`
+  (replace every email address with `***`).
   Then run
   [ExtractorTest.java](exercises/ex18-regex/src/test/java/ExtractorTest.java).
   Notice that the patterns are compiled once into `static final Pattern`

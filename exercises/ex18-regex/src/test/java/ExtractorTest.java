@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/** Tests for {@link Extractor}. Do NOT modify this file. */
+/**
+ * Tests for {@link Extractor}. Do NOT modify this file.
+ */
 class ExtractorTest {
 
   @Test
@@ -16,8 +18,8 @@ class ExtractorTest {
   @Test
   void findsSeveralCourseCodesInOrder() {
     assertEquals(
-        List.of("CSC207H1F", "CSC236H1S", "MAT137Y1Y"),
-        Extractor.findCourseCodes("Take CSC207H1F, then CSC236H1S; MAT137Y1Y helps too."));
+      List.of("CSC207H1F", "CSC236H1S", "MAT137Y1Y"),
+      Extractor.findCourseCodes("Take CSC207H1F, then CSC236H1S; MAT137Y1Y helps too."));
   }
 
   @Test
@@ -34,8 +36,8 @@ class ExtractorTest {
   @Test
   void findsCourseNumbersUsingTheCapturingGroup() {
     assertEquals(
-        List.of("207", "236", "137"),
-        Extractor.findCourseNumbers("Take CSC207H1F, then CSC236H1S; MAT137Y1Y helps too."));
+      List.of("207", "236", "137"),
+      Extractor.findCourseNumbers("Take CSC207H1F, then CSC236H1S; MAT137Y1Y helps too."));
   }
 
   @Test
@@ -51,9 +53,9 @@ class ExtractorTest {
   @Test
   void masksSeveralEmails() {
     assertEquals(
-        "From *** to ***, cc ***.",
-        Extractor.maskEmails(
-            "From a.b_c+tag@sub.domain.org to bob@example.com, cc carol@utoronto.ca."));
+      "From *** to ***, cc ***.",
+      Extractor.maskEmails(
+        "From a.b_c+tag@sub.domain.org to bob@example.com, cc carol@utoronto.ca."));
   }
 
   @Test

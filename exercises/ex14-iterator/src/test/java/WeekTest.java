@@ -8,7 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/** Tests for {@link Week}. Do NOT modify this file. */
+/**
+ * Tests for {@link Week}. Do NOT modify this file.
+ */
 class WeekTest {
 
   @Test

@@ -1,6 +1,8 @@
 package designpatterns.creational.factory.shapes;
 
-/** A circle shape. */
+/**
+ * A circle shape.
+ */
 public class Circle implements Shape {
 
   @Override

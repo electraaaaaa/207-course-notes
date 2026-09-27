@@ -6,7 +6,9 @@ import designpatterns.structural.facade.BillLogger;
 import designpatterns.structural.facade.BillPrinter;
 import designpatterns.structural.facade.FoodItem;
 
-/** Facade that hides the subsystems involved in issuing a bill. */
+/**
+ * Facade that hides the subsystems involved in issuing a bill.
+ */
 public class BillFacade {
 
   private final Bill bill;
@@ -14,7 +16,9 @@ public class BillFacade {
   private final BillLogger logger;
   private final BillPrinter printer;
 
-  /** Creates the facade and sets up a sample bill. */
+  /**
+   * Creates the facade and sets up a sample bill.
+   */
   public BillFacade() {
     this.calculator = new BillCalculator();
     this.logger = new BillLogger();
@@ -29,7 +33,9 @@ public class BillFacade {
     System.out.println("Sample bill created in constructor.");
   }
 
-  /** Issues the bill by calculating the total, logging it and printing it. */
+  /**
+   * Issues the bill by calculating the total, logging it and printing it.
+   */
   // method that interacts with the subsystems to perform the task of issuing the bill
   public void issueBill() {
     calculateTotal();

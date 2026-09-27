@@ -6,6 +6,7 @@ import java.util.List;
  * A restriction on the type that can be used to instantiate a SelectionSort:
  * only those types T that implement the interface Comparable<T>.
  */
+
 /**
  * A sorting strategy that orders a list using the selection sort algorithm.
  *

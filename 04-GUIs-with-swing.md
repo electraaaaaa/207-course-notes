@@ -3,16 +3,17 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 4: Graphical user interfaces in Java](#chapter-4-graphical-user-interfaces-in-java)
-  - [4.1 Creating and showing a window in Java](#41-creating-and-showing-a-window-in-java)
-  - [4.2 Java Swing visual components](#42-java-swing-visual-components)
-  - [4.3 Handling button clicks](#43-handling-button-clicks)
-  - [4.4 Exercises](#44-exercises)
-  - [4.5. Testing UI code](#45-testing-ui-code)
-  - [Further reading](#further-reading)
+    - [4.1 Creating and showing a window in Java](#41-creating-and-showing-a-window-in-java)
+    - [4.2 Java Swing visual components](#42-java-swing-visual-components)
+    - [4.3 Handling button clicks](#43-handling-button-clicks)
+    - [4.4 Exercises](#44-exercises)
+    - [4.5. Testing UI code](#45-testing-ui-code)
+    - [Further reading](#further-reading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Chapter 4: Graphical user interfaces in Java
+
 Now that we are familiar with the basics of programming in Java, we'll take our next step
 towards making a visual Java application: creating a basic user interface.
 
@@ -65,6 +66,7 @@ SwingUtilities.invokeLater(() -> {
     // whatever code you want executed
 });
 ```
+
 Read the complete example in [MainFrame.java](code/src/main/java/gui/MainFrame.java).
 
 We will now explore a few of the components that can be added to a `JFrame` to display
@@ -99,6 +101,7 @@ Here we create the first name `JLabel` and `JTextField` and add them to a `JPane
     firstNamePanel.add(new JLabel("First Name:"));
     firstNamePanel.add(new JTextField(10));
 ```
+
 By default, `JPanel` contents flow left to right. You can set a `JPanel` to display its contents vertically instead.
 Here, we create the main `JPanel`, set its layout to vertical (on the Y axis), and add the three nested `JPanel`s.
 
@@ -113,7 +116,8 @@ Here, we create the main `JPanel`, set its layout to vertical (on the Y axis), a
 It isn't all that pretty, but it's simple, and you can use nested `JPanel`s to quickly
 organize your user interface.
 
-Make sure you read and understand the complete example in [NestedPanelsExample.java](code/src/main/java/gui/NestedPanelsExample.java).
+Make sure you read and understand the complete example
+in [NestedPanelsExample.java](code/src/main/java/gui/NestedPanelsExample.java).
 
 Next, we'll learn the basics of how user interactions work.
 
@@ -148,6 +152,7 @@ submit.addActionListener(new ActionListener() {
     }
 });
 ```
+
 Button methods are always called `actionPerformed`.
 There are other listener methods for other kinds of components that we'll encounter later.
 
@@ -163,7 +168,8 @@ This is so weird and fun.
 When you run `ButtonClickExample.java`, you'll see a popup window.
 `JOptionPane.showMessageDialog` does this for us.
 
-Make sure you read and understand the example in [ButtonClickExample.java](code/src/main/java/gui/ButtonClickExample.java).
+Make sure you read and understand the example
+in [ButtonClickExample.java](code/src/main/java/gui/ButtonClickExample.java).
 
 ### 4.3.1 Exercise: click `Cancel` to clear the text fields
 
@@ -172,11 +178,13 @@ text fields by calling method `setText`. You'll need to start by refactoring the
 cancel button code:
 
 Old:
+
 ```java
 buttonPanel.add(new JButton("Cancel"));
 ```
 
 New:
+
 ```java
 JButton cancel = new JButton("Cancel");
 buttonPanel.add(cancel);

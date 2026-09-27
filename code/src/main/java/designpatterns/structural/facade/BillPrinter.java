@@ -13,7 +13,9 @@ public class BillPrinter {
 
   File file;
 
-  /** Creates a printer that writes to {@code printer-input.txt} in the current directory. */
+  /**
+   * Creates a printer that writes to {@code printer-input.txt} in the current directory.
+   */
   public BillPrinter() {
     file = new File("printer-input.txt");
   }
@@ -36,13 +38,13 @@ public class BillPrinter {
 
       for (OrderItem it : bill.getOrderItems()) {
         System.out.println(
-            "Item: "
-                + it.getItem().getName()
-                + "   "
-                + it.getItem().getPrice()
-                + "$   "
-                + "Quantity:"
-                + it.getQuantity());
+          "Item: "
+            + it.getItem().getName()
+            + "   "
+            + it.getItem().getPrice()
+            + "$   "
+            + "Quantity:"
+            + it.getQuantity());
       }
 
       System.out.println("Total Price: " + (bill.getTotal() + "$\n"));
@@ -50,10 +52,10 @@ public class BillPrinter {
       System.setOut(console);
 
       System.out.println(
-          "Message from Printer: The bill has been printed to "
-              + file.getName()
-              + " in the current directory "
-              + "to be printed by the printer.");
+        "Message from Printer: The bill has been printed to "
+          + file.getName()
+          + " in the current directory "
+          + "to be printed by the printer.");
 
     } catch (IOException ex) {
       ex.printStackTrace();

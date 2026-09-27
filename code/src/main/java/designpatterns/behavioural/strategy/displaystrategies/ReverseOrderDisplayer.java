@@ -9,7 +9,9 @@ import java.util.List;
  */
 public class ReverseOrderDisplayer<T> implements Displayer<T> {
 
-  /** Displays items of the list in reverse order. */
+  /**
+   * Displays items of the list in reverse order.
+   */
   @Override
   public void display(List<T> list) {
 

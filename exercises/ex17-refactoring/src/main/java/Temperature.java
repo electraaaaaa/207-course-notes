@@ -1,16 +1,16 @@
 /**
  * Exercise (Chapter 13: Refactoring) — Replace Constructor with Factory Method.
- *
+ * <p>
  * Right now callers build a Temperature with {@code new Temperature(celsius)},
  * which is easy to misread: is that number Celsius or Fahrenheit? Applying the
  * "Replace Constructor with Factory Method" refactoring, add two clearly-named
  * static factory methods so the caller's intent is obvious. Complete
  * {@link #fromCelsius(double)} and {@link #fromFahrenheit(double)}. Edit only
  * this file.
- *
+ * <p>
  * (Once the factories exist, a common next step is to make the constructor
  * {@code private} so callers must go through them — try it and re-run the tests.)
- *
+ * <p>
  * Relevant reading: 13.8. Replace Constructor with Factory Method.
  */
 public class Temperature {

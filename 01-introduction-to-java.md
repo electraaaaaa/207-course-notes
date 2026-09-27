@@ -3,17 +3,17 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 1: Introduction to Java](#chapter-1-introduction-to-java)
-  - [1.0 Why Learn Java?](#10-why-learn-java)
-  - [1.1. A first look at Java](#11-a-first-look-at-java)
-  - [1.2. Variables and Types](#12-variables-and-types)
-  - [1.3. Reference Types and Primitive Types](#13-reference-types-and-primitive-types)
-  - [1.4. Strings](#14-strings)
-  - [1.5. Classes in Java](#15-classes-in-java)
-  - [1.6. Arrays](#16-arrays)
-  - [1.7. Aliases](#17-aliases)
-  - [1.8. Control Structures](#18-control-structures)
-  - [1.9. Parameters](#19-parameters)
-  - [1.10. Exercises](#110-exercises)
+    - [1.0 Why Learn Java?](#10-why-learn-java)
+    - [1.1. A first look at Java](#11-a-first-look-at-java)
+    - [1.2. Variables and Types](#12-variables-and-types)
+    - [1.3. Reference Types and Primitive Types](#13-reference-types-and-primitive-types)
+    - [1.4. Strings](#14-strings)
+    - [1.5. Classes in Java](#15-classes-in-java)
+    - [1.6. Arrays](#16-arrays)
+    - [1.7. Aliases](#17-aliases)
+    - [1.8. Control Structures](#18-control-structures)
+    - [1.9. Parameters](#19-parameters)
+    - [1.10. Exercises](#110-exercises)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -72,8 +72,8 @@ you could run `java HelloWorld` in the terminal.
 
 As projects grow in complexity, you may have hundreds of source code files
 that need to be compiled. Directly running `javac` yourself would be tedious,
-so modern development environments like IntelliJ automate this process using
-**build systems** such as Maven or Gradle. These tools manage compilation,
+so modern development environments like IntelliJ automate this process using **build systems** such as Maven or Gradle.
+These tools manage compilation,
 dependencies, and execution, allowing you to focus on writing code. However,
 understanding the underlying process is important — especially if you plan
 to later take CSC209, where you'll need to compile C programs without the
@@ -86,8 +86,8 @@ To better understand why Java is designed in this way, we'll take a very high-le
 look at computer architecture.
 
 In earlier courses (CSC108/148 and CSC110/111), you focused on writing applications.
-But those applications don’t run in isolation — they rely on the
-**operating system (OS)** to manage resources and interact with hardware.
+But those applications don’t run in isolation — they rely on the **operating system (OS)** to manage resources and
+interact with hardware.
 The OS acts as a bridge between your program and the physical computer.
 It handles tasks like memory management, file access, and process scheduling.
 
@@ -146,8 +146,8 @@ details.
 
 Java’s architecture is built around the **Java Virtual Machine (JVM)**.
 As the name suggests, the JVM has the benefits of being a VM that we just
-discussed. Recall that when a Java source file is compiled, the result is
-**bytecode** in a `.class` file that can then be executed by the JVM.
+discussed. Recall that when a Java source file is compiled, the result is **bytecode** in a `.class` file that can then
+be executed by the JVM.
 This means the same `.class` file can run on Windows, macOS, or Linux,
 as long as a JVM is installed!
 
@@ -180,6 +180,7 @@ Now, we can turn our attention to writing Java code!
 > with the syntax of Java so that you'll be writing Java code in no time!
 
 ## 1.1. A first look at Java
+
 Let's begin by looking at something very simple in Python:
 
 ```print(7 + 5)```
@@ -187,11 +188,13 @@ Let's begin by looking at something very simple in Python:
 and see how to do it in Java.
 
 ### 1.1.1. Defining classes
+
 In Java, no code can exist outside a class, and there are no functions, only methods.
 So if we want to evaluate and print `7 + 5`, we need to define a class
 and a method to put that code in.
 
 Here is the outline of a class called `Hello`:
+
 ```java
 class Hello {
     // Methods will go here.
@@ -206,6 +209,7 @@ programmers — it makes code readable.
 The double slash indicates that the rest of the line is a comment.
 
 ### 1.1.2. Defining methods
+
 We need to put the code for printing `7 + 5` inside a method in our class,
 and we want to be able to run that method.
 So we need to understand how a program is run in Java.
@@ -248,6 +252,7 @@ a shortform for it: `psvm`.
 ![psvm completion in IntelliJ](images/psvm.gif)
 
 ### 1.1.3. Printing things
+
 In Python, we use a function called `print` to print things.
 In Java, we use a method called `System.out.println`:
 
@@ -266,14 +271,17 @@ including `println`. We pronounce this "print line"; this method puts a newline
 character at the end of whatever you are printing.
 
 The **semicolon** is the next difference from Python.
-In Python, a statement ends when we hit the return key
-(unless we add a backslash to say that we want to continue on the next line).
+In Python, a statement ends when we hit the return key (unless we add a backslash to say that we want to continue on the
+next line).
 In Java, we use a semicolon to mark the end of a statement.
 
 ## 1.2. Variables and Types
+
 ### 1.2.1. Flexible Python vs. Strict Java
+
 Python is very flexible about how we use variables.
 Consider this interaction with the Python shell:
+
 ```python
 >>> stuff = ['Jia', 'Musa', 'Vugar', 'Nicole']
 >>> type(stuff)
@@ -285,6 +293,7 @@ Consider this interaction with the Python shell:
 >>> type(stuff)
 <type 'dict'>
 ```
+
 You may not have noticed how much we are getting away with here.
 We were able to assign a value to variable called `stuff` that
 Python has never heard of until this moment, we could assign to it
@@ -295,12 +304,13 @@ This is why it is so valuable to define type contracts for your functions
 in Python.
 
 Java is different. Instead of optional type hints like in Python,
-Java uses a statically typed system where type declarations are
-*required and enforced by the compiler*. This strict type checking ensures
+Java uses a statically typed system where type declarations are *required and enforced by the compiler*. This strict
+type checking ensures
 that we follow type contracts, helping catch many bugs at compile time and
 improving overall type safety.
 
 ### 1.2.2. Declaring Types
+
 In Python, when we say `type(stuff)`, we are told the type of the object that
 `stuff` refers to. The variable `stuff` itself has no type, and it can refer
 to an object of any type.
@@ -319,6 +329,7 @@ Space is reserved in memory for this variable, and Java remembers that you
 have promised only to assign `int` values to it.
 
 ### 1.2.3. Declaration and Assignment
+
 If we wish, we can assign a value immediately after declaring the variable,
 even in the same line of code:
 
@@ -332,9 +343,8 @@ to Java, space has been reserved to store its value, and it is given a default
 value. For an `int`, the default value is `0`; for class types,
 it is `null` (the equivalent to Python's `None`).
 
-
-
 ### 1.2.4. Keeping track of our variables
+
 Java must keep track of four things associated with each variable:
 
 1. The variable's name, which we provide when we declare the variable.
@@ -345,10 +355,12 @@ Java must keep track of four things associated with each variable:
 The only one of these that can change is the value of the variable.
 
 ### 1.2.5. Errors
+
 Java checks as many things as it can, in order to help us avoid bugs.
 These are some errors related to variables and types that it can detect:
 
 #### 1.2.5.1. Didn't declare
+
 Here we use a variable that we did not declare:
 
 ```java
@@ -356,6 +368,7 @@ public static void main(String[] args) {
     i = 42;
 }
 ```
+
 Java gives this error: `"i cannot be resolved to a variable."` In other words,
 Java is trying to find a variable called `i` and is unable to.
 This could never happen in Python. In Python, if we assign a value to a new name,
@@ -366,6 +379,7 @@ But don't worry, if you forget to declare a variable, IntelliJ will help you out
 ![psvm completion in IntelliJ](images/declare.gif)
 
 #### 1.2.5.2. Assign value of the wrong type
+
 Here we assign the wrong type of value to a variable:
 
 ```java
@@ -373,6 +387,7 @@ public static void main(String[] args) {
     int i = 19.6;
 }
 ```
+
 Java gives the error: `"Type mismatch: cannot convert from double to int."`
 (Type `double` is like `float` in Python.) Java has caught a type mismatch.
 This could not happen in Python, because variables have no type in Python;
@@ -390,6 +405,7 @@ public static void main(String[] args) {
 ```
 
 #### 1.2.5.3. Declare a variable using a name that already exists
+
 Here we declare a variable called i, and then do so again.
 
 ```java
@@ -406,7 +422,9 @@ Python creates the variable, and the next time we use the same name,
 Python assumes we are referring to the same variable.
 
 ## 1.3. Reference Types and Primitive Types
+
 ### 1.3.1. More Java types
+
 So far we've seen one type of variable: `int`. Java has many other types, as does Python.
 Here are some very simple examples to demonstrate some of these.
 
@@ -424,11 +442,12 @@ double gpa = 3.82;
 ```
 
 There are additional integer-valued and real-valued types that allow us to
-either save memory (and give up precision) or gain precision
-(at the cost of using more memory). You can read more in the
+either save memory (and give up precision) or gain precision (at the cost of using more memory). You can read more in
+the
 [official Java tutorials](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html).
 
 ### 1.3.2. References vs. Primitives
+
 In Python, every value you can store, even the simplest thing such
 as the integer `1`, is an object. No variable ever stores a `1` directly;
 it must instead store a reference to an object of type `int` that contains
@@ -451,7 +470,9 @@ and the reference types with an *uppercase* letter. This makes it easy to tell
 whether a type is a primitive or a reference type.
 
 #### 1.3.2.1. Primitives and References in Memory
+
 Suppose we run the following code:
+
 ```java
 public class Simple {
     public static void main(String[] args) {
@@ -501,7 +522,9 @@ But in the early stages, you are much more likely to make correct predictions
 if you write down references (you can just make up id values) rather than arrows.
 
 ## 1.4. Strings
+
 ### 1.4.1. Class `String`
+
 Java has a class `String` that represents sequences of characters.
 Let's create a new string object to represent the text Hello:
 
@@ -567,10 +590,12 @@ as this might lead to opposite results.
 
 The above was describing string interning.
 You can refer to the following links for more information on the string pool and string interning:
+
 1. https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#intern--
 2. https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.5
 
 ### 1.4.2. Strings are Immutable
+
 Just as in Python, `String` objects in Java are immutable.
 This means that we can never mutate an existing `String` object.
 We *can* perform operations on `String` objects, but rather than change an
@@ -579,6 +604,7 @@ For example, see the documentation for the `concat` method at
 https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#concat-java.lang.String-.
 
 ### 1.4.3. String Operations and Methods
+
 `String` objects can be concatenated to produce a new `String` object:
 
 ```java
@@ -604,11 +630,11 @@ For the full list, consult Java's online documentation for Class `String` at
 https://docs.oracle.com/javase/8/docs/api/java/lang/String.html.
 
 ### 1.4.4. Mutable Strings: StringBuilder
+
 Like a `String`, a `StringBuilder` represents a sequence of characters; however,
 a `StringBuilder` object is **mutable**. Java provides many methods for mutating
 a `StringBuilder`. Here are some examples:
 
- 
 ```java
 StringBuilder sb = new StringBuilder("ban");
 // We don't have to create a new object in order to append;
@@ -623,6 +649,7 @@ sb.reverse();
 Again, you can refer to Java's online documentation for more details.
 
 Notice that we did not write:
+
 ```java
 StringBuilder sb = "ban";
 ```
@@ -631,6 +658,7 @@ This would have generated the error
 `incompatible types: String cannot be converted to StringBuilder`.
 
 ### 1.4.5. Single Character Strings: char
+
 We can have a `String` that contains just one character.
 
 ```java
@@ -647,11 +675,13 @@ char c = 'x';
 
 The `StringBuilder` method `setCharAt` requires its second argument to be of
 type `char`. This is why we use single quotes on the `o` when we called the method:
+
 ```java
 sb.setCharAt(3, 'o');
 ```
 
 ### 1.4.6. Mutating Strings vs. New Strings
+
 We saw that a `String` is immutable but a `StringBuilder` is mutable.
 We can live without `StringBuilder` objects if we construct a new `String` every
 time we need to make a change. But constructing a new object is slower than
@@ -669,19 +699,19 @@ StringBuilder d = new StringBuilder("Beluga");
 c.append(d); // Mutates -- faster.
 ```
 
-IntelliJ will even point this out to you in some situations and suggest you change your code
-(more on loop syntax later):
+IntelliJ will even point this out to you in some situations and suggest you change your code (more on loop syntax
+later):
 
 ![IntelliJ recommending use of StringBuilder](images/stringbuilder.gif)
 
 ## 1.5. Classes in Java
+
 Although we haven't begun to define our own classes,
 other than the simple one we need to contain a `main` method,
-we have been using classes, such as `String` and `StringBuilder`. 
+we have been using classes, such as `String` and `StringBuilder`.
 Let's look at a few concepts we need in order to confidently write client
 code that uses other classes.
 In the next chapter, we will learn more about defining our own custom classes.
-
 
 ### 1.5.1. Abstractions
 
@@ -689,8 +719,7 @@ An _abstraction_ is a simplified view of something complex.
 For example, in first year, you saw the memory model,
 which is an abstraction of how computer memory works for a running program.
 We can simplify that memory model further:
-an arrow means that a variable contains the memory address of an object
-(and thus points to that object),
+an arrow means that a variable contains the memory address of an object (and thus points to that object),
 and so we don't need to write those memory addresses —
 the particular memory addresses don't matter, just that the pointer exists.
 This is an abstraction on the abstraction!
@@ -707,6 +736,7 @@ Class `Student` is an abstraction of a student.
 
 In Python, we can create an instance of a class (in other words: creating an object)
 by calling its constructor. For example, assuming we have a `StringBuilder` class defined in Python:
+
 ```python
 name = StringBuilder("Viriyakattiyaporn")
 ```
@@ -779,6 +809,7 @@ As long as the API is maintained, all is well. We have the same separation betwe
 interface and implementation, with the same benefits, whenever we define a helper method.
 
 ### 1.5.3. Calling methods
+
 Just like in Python, we call an instance method via a reference to an instance of a class.
 For example:
 
@@ -794,6 +825,7 @@ For instance, when we write `band.length()` it is like saying
 "Hey band, you're a `String`: tell me your length!".
 
 ### 1.5.4. Class methods
+
 Some methods are associated not with individual instances of a class,
 but with the class as a whole. We call these "class methods"
 (or "static methods", since they are defined using the keyword `static`).
@@ -811,6 +843,7 @@ which takes an `int` and returns the equivalent `String`.
 There are other versions of `valueOf` that can convert other types to String;
 we say that `valueOf` is **overloaded** with multiple meanings.
 Here is an example of using class method `valueOf`:
+
 ```java
 int age = 12;
 System.out.println("Age is " + String.valueOf(age));
@@ -824,6 +857,7 @@ This is why the designers of the class made `valueOf` a class method rather
 than an instance method.
 
 ### 1.5.5. Accessing data members
+
 How we access data members (also known as attributes or instance variables) is
 exactly analogous to how we access methods.
 
@@ -868,10 +902,10 @@ This can hasten garbage collection and improve performance,
 but it may also be unnecessary and just make your code needlessly messy.
 There is a good discussion of this on
 [StackOverflow](https://stackoverflow.com/questions/449409/does-assigning-objects-to-null-in-java-impact-garbage-collection)
-for anyone interested. 
-
+for anyone interested.
 
 ## 1.6. Arrays
+
 Arrays are the simplest type that Java provides for storing a collection of items.
 They are a little like Python lists, but much, much simpler. In particular:
 
@@ -884,6 +918,7 @@ They are a little like Python lists, but much, much simpler. In particular:
 ### 1.6.1. Declaring an Array
 
 To declare an array, we must:
+
 - say that the type is array, which we do using square brackets, and
 - say what type each element of the array will be, which we say
   just ahead of the square brackets.
@@ -915,7 +950,7 @@ appropriate constructor, choosing the right one based on the number and type
 of arguments we give. Normally in Java, this looks like an ordinary method call,
 except that instead of a method name we give a class name.
 For example, if `house` were declared to be of type `String`, you could write
- 
+
 ```java
 String house = new String("Hufflepuff");
 ```
@@ -926,8 +961,8 @@ With arrays, we have some special syntax that looks a bit different.
 This syntax mimics the syntax used in languages like C,
 that pre-date object-oriented programming.
 We use the keyword `new` and the name of the type, but rather than round brackets,
-we use **square brackets**. The only argument we need send the constructor is the
-**size** of the array. Continuing with our `int` array `numbers`, we could construct
+we use **square brackets**. The only argument we need send the constructor is the **size** of the array. Continuing with
+our `int` array `numbers`, we could construct
 it as follows:
 
 ```java
@@ -951,10 +986,10 @@ We have assigned no values to these 5 spots,
 but they are initialized automatically to the default value for an `int`, which is 0.
 Each built-in type has a default value, and the appropriate one is used.
 
-
 #### 1.6.2.2. Another way to construct an array: with an initializer
 
 We can combine array object construction and initialization into one step:
+
 ```java
 int[] numbers = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 ```
@@ -967,6 +1002,7 @@ and then initializes the contents of that array by assigning each value at the a
 Then the assignment statement assigns a reference to the new array object to variable `numbers`.
 
 ### 1.6.3. Determining length
+
 We can find the length of an array by accessing its `length` attribute.
 Here we use it to construct another array of the same length as `numbers`.
 
@@ -975,6 +1011,7 @@ int[] sibling = new int[numbers.length];
 ```
 
 ### 1.6.4. Accessing the array elements
+
 The syntax for accessing elements is as in Python.
 For example, to assign a value to the integer at position `1`, we could write:
 
@@ -988,10 +1025,13 @@ Array indices start at zero as in many other programming languages.
 So our code did not put `512` in the very first spot; it went into the second spot.
 
 Python has some fancy ways of indexing a list For example, if we have this list:
+
 ```python
 houses = ["Hufflepuff", "Gryffindor", "Slytherin", "Ravenclaw"]
 ```
+
 we can do these things:
+
 ```python
 forHarry = houses[-3]   # The third element from the end of the list
 enemies = houses[1:2]   # Make a copy of some of the elements by "slicing"
@@ -1000,6 +1040,7 @@ enemies = houses[1:2]   # Make a copy of some of the elements by "slicing"
 Java arrays do **not** offer slicing and do not permit negative indices.
 If we try to access an array element at an index that is not between 0 and
 the array's length minus one, we get an error. For example, this code:
+
 ```java
 String[] houses = {"Hufflepuff", "Gryffindor", "Slytherin", "Ravenclaw"};
 String forHarry = houses[-3];
@@ -1025,6 +1066,7 @@ you can use a super efficient array; and if you do,
 you can use a flexible structure such as `ArrayList` instead.
 
 ### 1.6.5.1. Mixing types within an array is made possible by inheritance
+
 We can use inheritance to get around the restriction that every element
 of an array must have the same type. Every Java class is a descendant of a
 built-in class called `Object`
@@ -1049,6 +1091,7 @@ miscellany[2] = new int[50];
 So we can put all these different kinds of objects into `miscellany`,
 but when we later access an element of our array, all Java can tell from reading
 our code is that it will be an `Object`. This has consequences:
+
 ```java
 // When we write this line in the IDE, Java will check that the types match,
 // as it always does.
@@ -1066,13 +1109,15 @@ We can tell Java this by **casting** the `Object` to a `String`, that is,
 telling Java to treat it as a `String`, with the implied promise that when
 Java runs the code, this `Object` will indeed be a `String`.
 Here's what it looks like to cast `miscellany[0]` as a `String`:
+
 ```java
 // In round brackets we state the type that we want to cast to.
 String s = (String) miscellany[0];
 ```
+
 At runtime, if the object we are casting to type `String` didn't turn out
 to be a string, we would get a runtime error. Here's an example of that:
- 
+
 ```java
 // This time, we access element 1, which is a Monster. Java doesn't complain
 // when it reads the code, but does when we run the code and find that
@@ -1084,6 +1129,7 @@ This code generates the error
 `java.lang.ClassCastException: Monster cannot be cast to java.lang.String`.
 
 ### 1.6.6. Two-dimensional arrays
+
 We can also create arrays with multiple dimensions.
 For instance, here we define an array whose elements are themselves arrays of integers:
 
@@ -1103,9 +1149,11 @@ table[2][49] = 123;
 ```
 
 #### 1.6.6.1. Irregularly dimensioned arrays!
+
 Notice that we didn't really create a rectangular object;
 we created an array whose elements are themselves arrays.
 We can create these two levels of arrays separately, if we wish. For example:
+
 ```java
 int[][] table;
 table = new int[50][];
@@ -1120,6 +1168,7 @@ for (int i = 0; i < 50; i++) {
 
 This decoupling of the two sizes gives us the flexibility to make irregularly
 shaped multidimensional arrays:
+
 ```java
 int[][] irregular;
 irregular = new int[3][];
@@ -1130,6 +1179,7 @@ irregular[1][8] = 170;
 ```
 
 ## 1.7. Aliases
+
 ### 1.7.1. Aliasing and its implications
 
 We've learned that Java has two kinds of types: primitive types such as `int`,
@@ -1165,7 +1215,7 @@ For example, we might say "Eric Blair, alias George Orwell".
 We have two names for the same thing, in this case a person.
 
 We can create an alias in Python in the same fashion as in Java:
- 
+
 ```python
 name = "Justin Trudeau"
 primeMinister = name
@@ -1191,10 +1241,10 @@ because it does not have primitive types.
 
 ### 1.7.4. Side effects of aliasing
 
-Just like in Python, there are side effects to aliasing in Java. 
+Just like in Python, there are side effects to aliasing in Java.
 If we have two references to the same object, we have to be aware of this
 or our code will do things that surprise us.
- 
+
 Suppose we have a class called `Monster`, and it has methods called `grow`
 (to make a monster bigger) and `size` (to find out how big a monster is).
 
@@ -1220,8 +1270,10 @@ More precisely, changing the object that `two` refers to changes
 the object that `one` refers to — since they are the same object!
 
 ### 1.7.4.1. But only if the object is mutable!
+
 Suppose we have aliases for an object that is immutable,
 as in this example from above:
+
 ```java
 String name = new String("Justin Trudeau");
 String primeMinister = name;
@@ -1237,7 +1289,9 @@ primeMinister = primeMinister.replace('u', 'U');
 System.out.println(name);
 System.out.println(primeMinister);
 ```
+
 The output from this code is:
+
 ```
 Justin Trudeau
 JUstin TrUdeaU
@@ -1321,6 +1375,7 @@ To avoid this, we would have to make a copy of `table` at *every* level.
 This is called a **deep copy**.
 
 ### 1.7.7. Other kinds of side effects
+
 These kinds of side effects can also occur when we pass a parameter to a method.
 Sometimes this is what we want, and sometimes it is not.
 
@@ -1328,8 +1383,8 @@ Think back to Python and what happens when you pass lists in as parameters:
 modifying the list passed in would modify the original too!
 The same concept applies to Java.
 
-
 ## 1.8. Control Structures
+
 In Python, indentation is used to indicate nested code blocks.
 Take the following code for example:
 
@@ -1346,14 +1401,15 @@ We can tell what is part of the if-statement (the indented lines),
 and what is not (the initial variable assignments and the `print`
 statement after the if-statement).
 
-In Java, white space and indentation do not affect program behaviour
-(though they are very important for readability!)
+In Java, white space and indentation do not affect program behaviour (though they are very important for readability!)
 Instead, curly braces `{}` are used to define the structure of code blocks.
 
 ### 1.8.1. if Statements
+
 `if` statements in Java look very similar to those in Python,
 but with a little extra syntax. The simplest `if` statement has just an
 if-condition and associated body:
+
 ```java
 int classSize = 124;
 int sections = 1;
@@ -1409,6 +1465,7 @@ if (grade > 80) {
 ```
 
 And of course if-statements can be nested.
+
 ```java
 boolean precipitation = true;
 boolean freezing = false;
@@ -1428,11 +1485,13 @@ that associates the else with the inner (vs the outer) if-condition.
 > The equivalent operators in Java are `&&`, `||`, and `!`, respectively.
 
 ### 1.8.2. for Loops
+
 The syntax for a basic for-loop comes from the C language.
 C is now quite old, and this syntax feels as though we are doing things
 quite "by hand".
 
 This is the general structure of a basic for-loop:
+
 ```
 for (initialization; termination; increment) {
     loop body
@@ -1440,6 +1499,7 @@ for (initialization; termination; increment) {
 ```
 
 The header of our for-loop consists of 3 parts:
+
 - The *initialization* is executed once, before any iteration begins.
   It is very often sets a counter to 0, but it can be any statement.
 - The *termination* is a boolean condition. If it evaluates to true,
@@ -1448,6 +1508,7 @@ The header of our for-loop consists of 3 parts:
   increments a variable, but it could be any statement.
 
 Here is a simple example, where we find the sum of the first `n` numbers.
+
 ```java
 int n = 15;
 int sum = 0;
@@ -1458,6 +1519,7 @@ System.out.println("Sum of the first " + n + "numbers is " + sum);
 ```
 
 The 3 parts of this for-loop are as follows:
+
 - `int i = 1` is the *initialization*. Here we initialize a new variable, `i`,
   and give it a starting value of 1.
 - `i <= n` is our *termination*. We loop so long as `i <= n` is `true`,
@@ -1465,16 +1527,15 @@ The 3 parts of this for-loop are as follows:
 - `i++` is our *increment*. This line is equivalent to saying `i += 1`:
   in other words, we increase `i` by 1 at every iteration.
 
-Here we counted from `1` to `n` inclusive
-(as our termination condition was `i <= n`). Notice that the initialization
+Here we counted from `1` to `n` inclusive (as our termination condition was `i <= n`). Notice that the initialization
 included *declaring* the variable `i`. As long as the initialization is one statement,
 it can be anything! It is very common to put the variable declaration in the
-initialization because this limits its scope
-(the part of the code in which we can refer to it) to the loop.
+initialization because this limits its scope (the part of the code in which we can refer to it) to the loop.
 The variable disappears from our stack frame as soon as the loop is over,
 keeping a nice clean namespace.
 
 Here is an example with an array:
+
 ```java
 int[] powers = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 for (int i = 0; i < powers.length; i++) {
@@ -1486,11 +1547,13 @@ Notice that we count from `0` to `powers.length - 1`:
 this is all the valid indices of the array!
 
 #### 1.8.2.1. Enhanced for-loops
+
 Java also provides an enhanced form of for-loop, which is more like what you're
 used to from Python. It works on arrays and on "collections",
 which you will learn about shortly.
 
 Here's an example with an array:
+
 ```java
 for (int p : powers) {
     System.out.println(p);
@@ -1498,6 +1561,7 @@ for (int p : powers) {
 ```
 
 This is similar to the following code from Python:
+
 ```python
 for p in powers:
     print(p)
@@ -1507,13 +1571,16 @@ This loop is much simpler, and therefore less error-prone than the one
 above that uses a regular for-loop. You should use enhanced for-loops whenever possible.
 
 #### 1.8.2.2. Aside: shorthands (++, --, +=, -=)
+
 You may remember shortcuts like `+=` and `-=` from Python, e.g.:
+
 ```python
 x += n    # Equivalently: x = x + n
 y -= n    # Equivalently: y = y - n
 ```
 
 Java has the same, but with two others:
+
 ```java
 i++;      // Equivalently: i = i + 1
 i--;      // Equivalently: i = i - 1
@@ -1533,13 +1600,16 @@ This distinction matters in more complex expressions,
 and can lead to subtle bugs if you're not careful.
 
 ### 1.8.3. while Loops
+
 In Python, while-loops had the syntax:
+
 ```python
 while condition:
     ...
 ```
 
 Java is fairly similar, with while-loops having the form:
+
 ```java
 while (condition) {
     ...
@@ -1547,6 +1617,7 @@ while (condition) {
 ```
 
 A larger example is the following:
+
 ```java
 int number = 37;
 int divisor = 7;
@@ -1558,6 +1629,7 @@ System.out.println("Leftover: " + number);
 ```
 
 The same structural rules hold here as for if-statements:
+
 - The condition must be inside round brackets.
 - The while-loop's body needs curly braces if it is more than one line long,
   but it should have curly braces even if it is only one line long.
@@ -1568,10 +1640,12 @@ If it evaluates to true, we execute the body of the loop and go back to the top.
 Thus, when the loop terminates, we know that the loop condition is false.
 
 #### 1.8.3.1. do-while Loops
+
 The do-while loop is another form of a while-loop in Java.
 
 The do-while loop checks its condition after the loop runs, ensuring that
 the loop always runs at least once. The syntax consists of the following:
+
 ```java
 do {
     // your code inside
@@ -1608,6 +1682,7 @@ so usage of this form is not recommended. The information is just for reference.
 Let's quickly recap some parameter concepts and terminology that are common to Java and Python.
 
 Here's a simple example:
+
 ```java
 public static void messAbout(int n, String s) {
     // Contents of the method omitted.
@@ -1651,6 +1726,7 @@ Let's examine the implications of this in different scenarios.
 ### 1.9.1. Passing a primitive
 
 What does this code output?
+
 ```java
 static void increase(int i) {
     i = i + 1000;
@@ -1675,6 +1751,7 @@ In particular, variable `cost` and parameter `i` each contain the value `14`,
 and clearly changing what is in one box does not affect what is in the other.
 
 This analogous Python program would produce the same output:
+
 ```python
 def increase(i: int) -> None:
     """Increase i by 1000."""
@@ -1685,6 +1762,7 @@ if __name__ == '__main__':
     increase(cost)
     print(cost)
 ```
+
 The reason, however, is different. Can you draw the memory model for this code,
 and explain why it also fails to increase `cost`? The diagram will *not* be the same.
 
@@ -1694,6 +1772,7 @@ Return the changed value and have the calling code assign it
 to the variable we wished to change.
 
 Here it is in Java:
+
 ```java
 static int increased(int i) {
     return i + 10;
@@ -1710,6 +1789,7 @@ Now that the method returns a value, it makes sense to use a noun
 rather than a verb. The line `cost = increased(cost)` reads nicely.
 
 ### 1.9.1. Passing a reference creates an alias
+
 As we learned, if an argument to a method is a variable,
 what we assign to the method's parameter is simply the value contained in the box.
 If that variable of a reference type, what's in the box is a reference,
@@ -1717,6 +1797,7 @@ so the argument and parameter become aliases.
 What can happen next depends on whether the object is mutable.
 
 #### 1.9.1.1. Passing a reference to a mutable object
+
 If we pass a reference to a *mutable* object, we have the potential for side effects.
 This is really no different from the kinds of side effects we saw earlier,
 when we learned about aliasing.
@@ -1726,6 +1807,7 @@ You just have to know what you're dealing with (primitive, immutable object, or 
 so that you are sure your code will do what you want.
 
 Here's an example where we pass a reference to a mutable object:
+
 ```java
 static void increase(StringBuilder sb) {
     sb.append(sb);
@@ -1763,6 +1845,7 @@ the parameter and there will be no effect outside the method.
 This also is not a bad thing: it depends on what you want.
 
 Here's an example:
+
 ```java
 static void increase(String s) {
     // We can't call a method to append to s, because String doesn't have
@@ -1802,6 +1885,7 @@ public static void main(String[] args) {
 This code prints out `oinkoink!`
 
 #### 1.9.1.3. Compound objects mixing mutable and immutable
+
 The situation gets trickier when we have objects that contain other objects.
 The bottom line is this: know whether you are passing a primitive or a reference
 type and whether your objects are mutable — at each level of their structure.
@@ -1816,8 +1900,8 @@ directly in IntelliJ.
 The exercises are kept behind a Maven **profile** called `exercises` — a named
 group of build settings that is off by default, so an unfinished exercise can't
 break the main build. You activate it once: in IntelliJ open the **Maven** tool
-window (right edge), expand **Profiles**, tick **`exercises`**, and click
-**Reload All Maven Projects**; the exercise modules then appear and their green ▶
+window (right edge), expand **Profiles**, tick **`exercises`**, and click **Reload All Maven Projects**; the exercise
+modules then appear and their green ▶
 run/test buttons light up. From the command line the equivalent is
 `mvn -P exercises test`. See [exercises/README.md](exercises/README.md) and
 [§4 Profiles in QUICKSTART.md](QUICKSTART.md#profiles) for more information.

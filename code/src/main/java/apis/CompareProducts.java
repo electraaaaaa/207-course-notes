@@ -13,10 +13,14 @@ import java.util.List;
  */
 public class CompareProducts {
 
-  /** Nutella, a well-known product that is definitely in the database. */
+  /**
+   * Nutella, a well-known product that is definitely in the database.
+   */
   private static final String NUTELLA = "3017620422003";
 
-  /** Coca-Cola, for comparison. */
+  /**
+   * Coca-Cola, for comparison.
+   */
   private static final String COCA_COLA = "5449000000996";
 
   /**
@@ -84,13 +88,13 @@ public class CompareProducts {
     }
     if (a.getSugarsPer100g() == b.getSugarsPer100g()) {
       return String.format(
-          "%s and %s have the same sugar content (%.1fg per 100g).",
-          a.getName(), b.getName(), a.getSugarsPer100g());
+        "%s and %s have the same sugar content (%.1fg per 100g).",
+        a.getName(), b.getName(), a.getSugarsPer100g());
     }
     Product sweeter = a.getSugarsPer100g() > b.getSugarsPer100g() ? a : b;
     Product other = sweeter == a ? b : a;
     return String.format(
-        "%s has more sugar than %s: %.1fg vs %.1fg per 100g.",
-        sweeter.getName(), other.getName(), sweeter.getSugarsPer100g(), other.getSugarsPer100g());
+      "%s has more sugar than %s: %.1fg vs %.1fg per 100g.",
+      sweeter.getName(), other.getName(), sweeter.getSugarsPer100g(), other.getSugarsPer100g());
   }
 }

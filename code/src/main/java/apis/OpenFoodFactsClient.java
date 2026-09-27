@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -30,10 +31,14 @@ import org.json.JSONObject;
  */
 public class OpenFoodFactsClient {
 
-  /** Base URL of the v2 "get one product" endpoint; the barcode is appended to it. */
+  /**
+   * Base URL of the v2 "get one product" endpoint; the barcode is appended to it.
+   */
   private static final String PRODUCT_URL = "https://world.openfoodfacts.org/api/v2/product/";
 
-  /** Endpoint for searching, which returns an array of products. */
+  /**
+   * Endpoint for searching, which returns an array of products.
+   */
   private static final String SEARCH_URL = "https://world.openfoodfacts.org/api/v2/search";
 
   /**
@@ -42,7 +47,9 @@ public class OpenFoodFactsClient {
    */
   private static final String FIELDS = "code,product_name,brands,nutriscore_grade,nutriments";
 
-  /** Open Food Facts asks that every caller identify itself. */
+  /**
+   * Open Food Facts asks that every caller identify itself.
+   */
   private static final String USER_AGENT = "CSC207-CourseNotes/1.0 (teaching example)";
 
   private final OkHttpClient client = new OkHttpClient();
@@ -73,7 +80,7 @@ public class OpenFoodFactsClient {
    * handling, so it can be tested without touching the network. Save one real response to a file
    * and you can develop against it all day without making a single request.
    *
-   * @param json the raw JSON text of the response
+   * @param json    the raw JSON text of the response
    * @param barcode the barcode that was requested
    * @return the product described by the JSON
    * @throws IOException if the response says no product was found
@@ -91,12 +98,12 @@ public class OpenFoodFactsClient {
     JSONObject nutriments = product.optJSONObject("nutriments");
 
     return new Product(
-        product.optString("code", barcode),
-        product.optString("product_name", "(unknown)"),
-        product.optString("brands", "(unknown)"),
-        product.optString("nutriscore_grade", "?"),
-        readNutriment(nutriments, "energy-kcal_100g"),
-        readNutriment(nutriments, "sugars_100g"));
+      product.optString("code", barcode),
+      product.optString("product_name", "(unknown)"),
+      product.optString("brands", "(unknown)"),
+      product.optString("nutriscore_grade", "?"),
+      readNutriment(nutriments, "energy-kcal_100g"),
+      readNutriment(nutriments, "sugars_100g"));
   }
 
   /**
@@ -106,7 +113,7 @@ public class OpenFoodFactsClient {
    * with a default keeps a missing field from crashing the program.
    *
    * @param nutriments the nutriments object, which may be null
-   * @param key the nutriment to read, e.g. "sugars_100g"
+   * @param key        the nutriment to read, e.g. "sugars_100g"
    * @return the value, or NaN if it is not present
    */
   private static double readNutriment(JSONObject nutriments, String key) {
@@ -123,19 +130,19 @@ public class OpenFoodFactsClient {
    * good place to practise {@link org.json.JSONArray}.
    *
    * @param category the English category tag to search for, e.g. "chocolate"
-   * @param limit how many products to ask for
+   * @param limit    how many products to ask for
    * @return the products found, in the order the API returned them
    * @throws IOException if the request fails
    */
   public List<Product> searchByCategory(String category, int limit) throws IOException {
     String url =
-        SEARCH_URL
-            + "?categories_tags_en="
-            + URLEncoder.encode(category, StandardCharsets.UTF_8)
-            + "&fields="
-            + FIELDS
-            + "&page_size="
-            + limit;
+      SEARCH_URL
+        + "?categories_tags_en="
+        + URLEncoder.encode(category, StandardCharsets.UTF_8)
+        + "&fields="
+        + FIELDS
+        + "&page_size="
+        + limit;
     Request request = new Request.Builder().url(url).header("User-Agent", USER_AGENT).build();
 
     try (Response response = client.newCall(request).execute()) {
@@ -164,13 +171,13 @@ public class OpenFoodFactsClient {
       }
       JSONObject nutriments = product.optJSONObject("nutriments");
       results.add(
-          new Product(
-              product.optString("code", "?"),
-              name,
-              product.optString("brands", "(unknown)"),
-              product.optString("nutriscore_grade", "?"),
-              readNutriment(nutriments, "energy-kcal_100g"),
-              readNutriment(nutriments, "sugars_100g")));
+        new Product(
+          product.optString("code", "?"),
+          name,
+          product.optString("brands", "(unknown)"),
+          product.optString("nutriscore_grade", "?"),
+          readNutriment(nutriments, "energy-kcal_100g"),
+          readNutriment(nutriments, "sugars_100g")));
     }
     return results;
   }
@@ -180,7 +187,7 @@ public class OpenFoodFactsClient {
    * again. See the "Rate limits" section of the chapter.
    *
    * @param barcode the product to fetch
-   * @param file where to write the response
+   * @param file    where to write the response
    * @throws IOException if the request or the write fails
    */
   public void saveResponseToFile(String barcode, Path file) throws IOException {

@@ -1,6 +1,8 @@
 package designpatterns.behavioural.strategy.withoutstrategy;
 
-/** A book with a title and an ISBN number, ordered by ISBN. */
+/**
+ * A book with a title and an ISBN number, ordered by ISBN.
+ */
 public class Book implements Comparable<Book> {
 
   private String title; // this Book's title
@@ -10,7 +12,7 @@ public class Book implements Comparable<Book> {
    * Constructs a new Book named title with ISBN number isbn.
    *
    * @param title the new Book's title
-   * @param isbn the new Book's ISBN number
+   * @param isbn  the new Book's ISBN number
    */
   public Book(String title, String isbn) {
     this.title = title;

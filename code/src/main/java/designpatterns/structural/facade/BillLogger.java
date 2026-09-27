@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/** Writes a bill to a log file in the current directory. */
+/**
+ * Writes a bill to a log file in the current directory.
+ */
 public class BillLogger {
 
   /*
@@ -12,7 +14,9 @@ public class BillLogger {
    */
   File file;
 
-  /** Creates a bill logger and prepares the log file. */
+  /**
+   * Creates a bill logger and prepares the log file.
+   */
   public BillLogger() {
     createFile();
   }
@@ -49,9 +53,9 @@ public class BillLogger {
       myWriter.close();
 
       System.out.println(
-          "Message from Logger: The bill has been logged in "
-              + file.getName()
-              + " in the current directory.");
+        "Message from Logger: The bill has been logged in "
+          + file.getName()
+          + " in the current directory.");
     } catch (IOException e) {
       e.printStackTrace();
     }

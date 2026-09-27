@@ -1,17 +1,20 @@
 package designpatterns.creational.builder.withbuilder;
 
-/** A pizza constructed via a {@link PizzaBuilder}. */
+/**
+ * A pizza constructed via a {@link PizzaBuilder}.
+ */
 public class Pizza {
   private final String size;
   private final boolean cheese;
   private final boolean pepperoni;
 
   // Constructor with all fields
+
   /**
    * Creates a pizza with all fields.
    *
-   * @param size the pizza size
-   * @param cheese whether the pizza has cheese
+   * @param size      the pizza size
+   * @param cheese    whether the pizza has cheese
    * @param pepperoni whether the pizza has pepperoni
    */
   public Pizza(String size, boolean cheese, boolean pepperoni) {

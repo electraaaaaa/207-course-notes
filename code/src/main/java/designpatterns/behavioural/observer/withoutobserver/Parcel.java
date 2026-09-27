@@ -1,25 +1,35 @@
 package designpatterns.behavioural.observer.withoutobserver;
 
-/** An observable parcel with a tracking number and location. */
+/**
+ * An observable parcel with a tracking number and location.
+ */
 public class Parcel {
 
-  /** This Parcel's tracking number. */
+  /**
+   * This Parcel's tracking number.
+   */
   private final String trackingNumber;
 
-  /** This Parcel's location. */
+  /**
+   * This Parcel's location.
+   */
   private String location;
 
-  /** This parcel's customer. */
+  /**
+   * This parcel's customer.
+   */
   private Customer customer;
 
-  /** This parcel's company. */
+  /**
+   * This parcel's company.
+   */
   private Company company;
 
   /**
    * Constructs a new Parcel with the given tracking number and location.
    *
    * @param trackingNumber This Parcel's tracking number.
-   * @param location This Parcel's location.
+   * @param location       This Parcel's location.
    */
   public Parcel(String trackingNumber, String location) {
     this.trackingNumber = trackingNumber;

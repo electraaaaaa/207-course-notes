@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-/** Sample test class demonstrating the test folder structure and JUnit 5. */
+/**
+ * Sample test class demonstrating the test folder structure and JUnit 5.
+ */
 class HelloWorldTest {
 
   @Test

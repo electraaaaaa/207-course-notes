@@ -1,6 +1,8 @@
 package designpatterns.structural.facade;
 
-/** Represents a food item together with its ordered quantity. */
+/**
+ * Represents a food item together with its ordered quantity.
+ */
 public class OrderItem {
 
   private final FoodItem item;
@@ -9,7 +11,7 @@ public class OrderItem {
   /**
    * Creates an order item for the given food item and quantity.
    *
-   * @param item the food item ordered
+   * @param item     the food item ordered
    * @param quantity the number of units ordered
    */
   public OrderItem(FoodItem item, int quantity) {

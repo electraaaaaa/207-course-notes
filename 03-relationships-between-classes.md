@@ -3,20 +3,21 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 3: Relationships between Classes](#chapter-3-relationships-between-classes)
-  - [3.1. Inheritance](#31-inheritance)
-  - [3.2. Interfaces](#32-interfaces)
-  - [3.3. super](#33-super)
-  - [3.4. Polymorphism](#34-polymorphism)
-  - [3.5. Casting](#35-casting)
-  - [3.6. Comparable](#36-comparable)
-  - [3.7. Comparator](#37-comparator)
-  - [3.8. UML Class Diagrams](#38-uml-class-diagrams)
+    - [3.1. Inheritance](#31-inheritance)
+    - [3.2. Interfaces](#32-interfaces)
+    - [3.3. super](#33-super)
+    - [3.4. Polymorphism](#34-polymorphism)
+    - [3.5. Casting](#35-casting)
+    - [3.6. Comparable](#36-comparable)
+    - [3.7. Comparator](#37-comparator)
+    - [3.8. UML Class Diagrams](#38-uml-class-diagrams)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Chapter 3: Relationships between Classes
 
 ## 3.1. Inheritance
+
 You may recall that we could inherit methods from another class in Python as
 follows:
 
@@ -43,6 +44,7 @@ Throughout this chapter, we will be using the terms parent class/child class and
 superclass/subclass interchangeably.
 
 ### 3.1.1. Abstract classes
+
 Abstract classes are classes that are not meant to be initialized directly.
 In Python, we signified a method was abstract by having a method that would
 raise a `NotImplementedError`. Any non-abstract child class would then have
@@ -71,11 +73,12 @@ class NonAbstract extends AbstractClass{
 ```
 
 ### 3.1.2. Overriding methods
+
 In Python, we could override a parent class' methods by redefining it.
 In Java, we do the same thing, but we also include an `@Override` annotation.
 This informs the compiler that method is meant to override a method in a superclass.
-While the annotation is not required, including it helps us prevent errors
-(e.g., misspelling the name of a method, forgetting a parameter, etc.).
+While the annotation is not required, including it helps us prevent errors (e.g., misspelling the name of a method,
+forgetting a parameter, etc.).
 
 For example, if we have the following parent class:
 
@@ -100,6 +103,7 @@ class Child extends Parent {
 ```
 
 ## 3.2. Interfaces
+
 In Java, you can only extend a single class: you have one parent class,
 and that's it! However, sometimes we want to describe more behaviours for a
 class in a way that just one parent won't suffice.
@@ -136,12 +140,14 @@ since **Java 8**, interfaces can also include:
 - `static` methods — useful for utility behavior related to the interface.
 
 For our example, we could define an `Edible` interface such as:
+
 ```java
 interface Edible {
     // Method that must be implemented by any class implementing Edible
     void eat(); // note that we don't include the abstract or public keywords!
 }
 ```
+
 And to define a `Washable` interface with a `default` method `wash`,
 we must use the keyword `default` when defining it:
 
@@ -188,8 +194,8 @@ interface Steamable extends Edible {
 
 Any class that `implements Steamable` must then have both a `steam` and `eat` method!
 
-
 ## 3.3. super
+
 In Python, we could use `super()` to refer to methods in the parent class.
 For instance, we could use `super().__init__()` to call the parent constructor
 or `super().method()` to call the parent's method.
@@ -203,9 +209,10 @@ Note the difference between Python and Java: `super()` is used in Python and has
 brackets while `super` is used in Java with no brackets!
 
 ### 3.3.1. Constructors with super
+
 When extending another class, Java *requires* a call to a constructor of its
-superclass to be made in the constructor of the subclass. Furthermore, this call
-*must* be the very first thing done. If no constructor call is explicitly made
+superclass to be made in the constructor of the subclass. Furthermore, this call *must* be the very first thing done. If
+no constructor call is explicitly made
 in the subclass constructor, then an *implicit* call to `super()` will be made.
 
 For instance, this code:
@@ -252,7 +259,7 @@ a new instance of our subclass.
 
 ## 3.4. Polymorphism
 
-**Polymorphism** is the ability of an object to take on many forms. 
+**Polymorphism** is the ability of an object to take on many forms.
 In Java, this means that an object can be treated as an instance of its own class,
 any superclass, or any interface it implements.
 
@@ -263,6 +270,7 @@ class Dog extends Canine implements Domesticatable { ... }
 ```
 
 A Dog object is:
+
 - a `Dog`
 - a `Canine`
 - possibly an `Animal` (if `Canine` extends `Animal`)
@@ -383,7 +391,9 @@ Primitive casting can be **implicit** (e.g., `int` to `double`) or **explicit**
 (e.g., `double` to `int`), depending on whether there's a risk of data loss.
 
 ## 3.6. Comparable
+
 ### 3.6.1. Being comparable enables sorting
+
 In Python, we had the `list.sort()` method and `sorted()` function to allow us
 to sort lists. Similarly, Java provides a `sort` method capable of sorting an
 array of `int` values or of any other primitive type. In fact, `sort` is
@@ -409,6 +419,7 @@ a general sort method that accepts an array of `Object`, like:
 ```java
 public static void sort(Object[] a)
 ```
+
 But in order for `sort` to do its job, it must be able to compare the elements
 of the array to decide on their order. It can't simply use operators like `<`
 to compare two instances of `MonthDay`. These operators will not accept instances
@@ -459,11 +470,12 @@ public static void main(String[] args) {
 The sort method has another requirement: all elements in the array must
 be **mutually** comparable. This prevents us from trying to sort an array
 with a mixture of `DateTime` objects and `File` objects, for instance.
-These objects are comparable *within* each class, but not *across* classes
-(unless the classes which the objects are instances of share a parent
+These objects are comparable *within* each class, but not *across* classes (unless the classes which the objects are
+instances of share a parent
 class implementing `Comparable`).
 
 ### 3.6.2. Being comparable enables comparisons
+
 If we ever wish simply to compare a MonthDay to any other MonthDay,
 we can do this as well:
 
@@ -477,6 +489,7 @@ The same holds for any class that implements `Comparable`, which includes
 many built-in classes, such as `String`, `File`, `Integer`, and `Double`.
 
 ### 3.6.3. Making our own classes Comparable
+
 Consider this class:
 
 ```java
@@ -598,11 +611,13 @@ My Neighbour Totoro (99): A work of art; likes = 0
 ```
 
 ### 3.6.4. Being comparable enables more
+
 In addition to enabling sorting, a class that implements `Comparable`
 can be used in certain "Collections" that care about order, such as `SortedSet`.
 You will learn about Collections in later readings.
 
 ## 3.7. Comparator
+
 What if we want to be able to choose between ordering reviews according
 to their rating, the length of their text or the number of likes they have?
 There can only be one `compareTo` method in the class. Or what if we want to make
@@ -650,7 +665,6 @@ class LikesComparator implements Comparator<Review> {
 (Sidenote: The `compare` method needs to know the number of likes a review has received.
 Since this is stored in a private instance variable, we have added a getter method
 to provide access to it.)
-
 
 Now we can use a version of `sort` that accepts a `Comparator` as a second argument,
 and uses it to determine how things are sorted. Here, we call it with
@@ -730,6 +744,7 @@ instead of the `LikesComparator`:
 ```
 
 This output is in order according to the length of the review text:
+
 ```
 My Neighbour Totoro (99): A work of art; likes = 2
 Spider Man: Homecoming (95): A fun adventure; likes = 2
@@ -739,6 +754,7 @@ Dunkirk (95): Gifted ensemble cast and masterful direction; likes = 0
 ```
 
 ### 3.7.1. When to use Comparable vs. Comparator?
+
 If you are not the author of the class, you cannot make it `Comparable`.
 Your only option is to define one or more comparators.
 
@@ -748,8 +764,8 @@ If you are the author of the class, you have both options available to you!
 
 When a design has more than a couple of classes, a picture is often clearer than
 the code. A **UML class diagram** is a standard, language-independent way to
-sketch the classes in a system and the relationships between them (inheritance, interfaces, "has-a"). 
-You have  already seen such diagrams in the design-patterns material; here we cover just
+sketch the classes in a system and the relationships between them (inheritance, interfaces, "has-a").
+You have already seen such diagrams in the design-patterns material; here we cover just
 enough notation to *read* one and *translate* between a diagram and Java.
 
 ### Reading a class box
@@ -778,10 +794,10 @@ Each class is drawn as a box with up to three compartments:
 The three relationships you will use most in this course each have their own
 arrow, drawn pointing from the class that "depends" to the one it depends on:
 
-| In the diagram | Means | In Java |
-|---|---|---|
-| solid line, **hollow triangle** ▷ pointing at the parent | **generalization** (a subclass *is-a* superclass) | `class Sub extends Super` |
-| **dashed** line, hollow triangle ▷ pointing at the interface | **realization** (a class *implements* an interface) | `class C implements I` |
+| In the diagram                                                 | Means                                                  | In Java                                                  |
+|----------------------------------------------------------------|--------------------------------------------------------|----------------------------------------------------------|
+| solid line, **hollow triangle** ▷ pointing at the parent       | **generalization** (a subclass *is-a* superclass)      | `class Sub extends Super`                                |
+| **dashed** line, hollow triangle ▷ pointing at the interface   | **realization** (a class *implements* an interface)    | `class C implements I`                                   |
 | solid line/arrow → (often with a multiplicity like `*` or `1`) | **association** (a class *has-a* reference to another) | a field of that type, e.g. `private List<Other> others;` |
 
 ### A worked example
@@ -795,55 +811,55 @@ directly to this Java:
 
 ```java
 interface Shape {
-    double area();
+  double area();
 }
 
 class Circle implements Shape {
-    private double radius;
+  private double radius;
 
-    public Circle(double radius) {
-        this.radius = radius;
-    }
+  public Circle(double radius) {
+    this.radius = radius;
+  }
 
-    public double area() {
-        return Math.PI * radius * radius;
-    }
+  public double area() {
+    return Math.PI * radius * radius;
+  }
 }
 
 class Rectangle implements Shape {
-    private double width;
-    private double height;
+  private double width;
+  private double height;
 
-    public Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
-    }
+  public Rectangle(double width, double height) {
+    this.width = width;
+    this.height = height;
+  }
 
-    public double area() {
-        return width * height;
-    }
+  public double area() {
+    return width * height;
+  }
 }
 
 class Square extends Rectangle {
-    public Square(double side) {
-        super(side, side);
-    }
+  public Square(double side) {
+    super(side, side);
+  }
 }
 
 class Drawing {
-    private List<Shape> shapes = new ArrayList<>();
+  private List<Shape> shapes = new ArrayList<>();
 
-    public void add(Shape shape) {
-        shapes.add(shape);
-    }
+  public void add(Shape shape) {
+    shapes.add(shape);
+  }
 
-    public double totalArea() {
-        double total = 0;
-        for (Shape shape : shapes) {
-            total += shape.area();
-        }
-        return total;
+  public double totalArea() {
+    double total = 0;
+    for (Shape shape : shapes) {
+      total += shape.area();
     }
+    return total;
+  }
 }
 ```
 
@@ -866,29 +882,33 @@ Below is a breakdown of how to write the code and generate the final image.
 
 - Formatting Commands (`skinparam`): `skinparam dpi 150` increases the sharpness and resolution of the output image.
 
-- `skinparam classAttributeIconSize 0` forces the diagram to use text symbols `(+, -)` for visibility instead of colored shapes.
+- `skinparam classAttributeIconSize 0` forces the diagram to use text symbols `(+, -)` for visibility instead of colored
+  shapes.
 
 - `hide empty members` cleans up the visual by hiding fields or methods sections if they are blank.
 
-- Defining Elements: You declare types using keywords like interface or class, followed by their names. 
+- Defining Elements: You declare types using keywords like interface or class, followed by their names.
   Inside the curly braces `{...}`, you define fields and methods using access modifiers:
 
-  - `-` (Minus) indicates a private member (e.g., `- radius : double`).
+    - `-` (Minus) indicates a private member (e.g., `- radius : double`).
 
-  - `+` (Plus) indicates a public member (e.g., `+ area() : double`).
+    - `+` (Plus) indicates a public member (e.g., `+ area() : double`).
 
 - Defining Relationships: Relationships are drawn using arrows between classes:
 
-  - `..|>` represents Interface Realization/Implementation (dashed line with an open arrow).
+    - `..|>` represents Interface Realization/Implementation (dashed line with an open arrow).
 
-  - `--|>` represents Inheritance/Generalization (solid line with an open arrow).
+    - `--|>` represents Inheritance/Generalization (solid line with an open arrow).
 
-  - `o-->` represents Aggregation (a hollow diamond pointing to the owner/container). The "*" indicates multiplicity (e.g., Drawing holds multiple Shape objects).
+    - `o-->` represents Aggregation (a hollow diamond pointing to the owner/container). The "*" indicates multiplicity
+      (e.g., Drawing holds multiple Shape objects).
 
 For example see the code for generating the above figure in [uml-shapes.puml](plantuml/uml-shapes.puml).
 
 2. Generating the Figure
-   Once your code is written, you can easily compile it into a visual diagram: copy your code and paste it directly into the official [PlantUML Online Server](https://www.plantuml.com/plantuml/uml). It will instantly render the image for you to view or download.
+   Once your code is written, you can easily compile it into a visual diagram: copy your code and paste it directly into
+   the official [PlantUML Online Server](https://www.plantuml.com/plantuml/uml). It will instantly render the image for
+   you to view or download.
 
 ### Exercises
 

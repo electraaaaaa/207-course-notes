@@ -3,7 +3,9 @@ package designpatterns.behavioural.strategy.withoutstrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-/** An abstract author whose subclasses fix the sorting and displaying of their books. */
+/**
+ * An abstract author whose subclasses fix the sorting and displaying of their books.
+ */
 public abstract class Author {
 
   protected String name; // this Author's name

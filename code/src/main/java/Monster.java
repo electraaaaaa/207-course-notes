@@ -102,8 +102,8 @@ public class Monster {
   /**
    * Creates a new Monster.
    *
-   * @param name the name of this Monster.
-   * @param size the size of this Monster.
+   * @param name          the name of this Monster.
+   * @param size          the size of this Monster.
    * @param bellyCapacity the number of Monsters this Monster can hold in its belly.
    */
   public Monster(String name, int size, int bellyCapacity) {
@@ -128,7 +128,9 @@ public class Monster {
     this.population += 1;
   }
 
-  /** Creates a new Monster with a default name, size, and belly capacity. */
+  /**
+   * Creates a new Monster with a default name, size, and belly capacity.
+   */
   public Monster() {
     /* Using this to call another constructor
 
@@ -227,7 +229,9 @@ public class Monster {
     this.size = this.size * factor;
   }
 
-  /** Grows this Monster by a default factor. */
+  /**
+   * Grows this Monster by a default factor.
+   */
   public void grow() {
     /*
        Again, we call the other "grow" method to do the work. This method
@@ -259,8 +263,8 @@ public class Monster {
    * Digests the contents of this Monster's belly. Its belly becomes empty, and the Monster burps.
    *
    * @return a "burp" String, with the number of u letters equal to the number of Monsters in this
-   *     Monster's belly at the time of digesting, or "cough" if the Monster's belly is already
-   *     empty.
+   * Monster's belly at the time of digesting, or "cough" if the Monster's belly is already
+   * empty.
    */
   public String digest() {
     if (this.fullness == 0) {

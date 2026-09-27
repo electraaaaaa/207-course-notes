@@ -2,7 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** Tests for {@link Temperature}. Do NOT modify this file. */
+/**
+ * Tests for {@link Temperature}. Do NOT modify this file.
+ */
 class TemperatureTest {
 
   private static final double DELTA = 1e-9;

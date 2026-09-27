@@ -2,10 +2,13 @@ package designpatterns.behavioural.strategy.withstrategy;
 
 import designpatterns.behavioural.strategy.displaystrategies.Displayer;
 import designpatterns.behavioural.strategy.sortstrategies.Sorter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/** An author that delegates sorting and displaying of books to configurable strategies. */
+/**
+ * An author that delegates sorting and displaying of books to configurable strategies.
+ */
 public class Author {
 
   private String name; // this Author's name
@@ -16,7 +19,7 @@ public class Author {
   /**
    * Constructs a new Author named name that uses sorting strategy sorter to sort books.
    *
-   * @param name the name of the new Author
+   * @param name   the name of the new Author
    * @param sorter the sorting strategy used to sort books
    */
   public Author(String name, Sorter<Book> sorter, Displayer<Book> displayer) {
@@ -53,22 +56,30 @@ public class Author {
     books.add(book);
   }
 
-  /** Sets the sorter for this author. */
+  /**
+   * Sets the sorter for this author.
+   */
   public void setSorter(Sorter<Book> sorter) {
     this.sorter = sorter;
   }
 
-  /** Set the displayer for this author. */
+  /**
+   * Set the displayer for this author.
+   */
   public void setDisplayer(Displayer<Book> displayer) {
     this.displayer = displayer;
   }
 
-  /** Sorts this Author's books. */
+  /**
+   * Sorts this Author's books.
+   */
   public void sortBooks() {
     sorter.sort(books);
   }
 
-  /** Displays this Author's books using the current display strategy. */
+  /**
+   * Displays this Author's books using the current display strategy.
+   */
   public void displayBooks() {
     displayer.display(books);
   }

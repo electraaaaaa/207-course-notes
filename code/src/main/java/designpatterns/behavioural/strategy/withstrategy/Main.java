@@ -6,6 +6,7 @@ import designpatterns.behavioural.strategy.displaystrategies.ReverseOrderDisplay
 import designpatterns.behavioural.strategy.sortstrategies.InsertionSorter;
 import designpatterns.behavioural.strategy.sortstrategies.SelectionSorter;
 import designpatterns.behavioural.strategy.sortstrategies.Sorter;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,21 +26,21 @@ public class Main {
   public static void main(String[] args) {
 
     Map<String, String> bookInfo1 =
-        new HashMap<String, String>() {
-          {
-            put("Harry Potter", "1770893083");
-            put("Quidditch Through The Ages", "0385659768");
-            put("Fantastic Beasts", "1770891048");
-          }
-        };
+      new HashMap<String, String>() {
+        {
+          put("Harry Potter", "1770893083");
+          put("Quidditch Through The Ages", "0385659768");
+          put("Fantastic Beasts", "1770891048");
+        }
+      };
 
     Map<String, String> bookInfo2 =
-        new HashMap<String, String>() {
-          {
-            put("The Shining", "1443433659");
-            put("Carrie", "0006485456");
-          }
-        };
+      new HashMap<String, String>() {
+        {
+          put("The Shining", "1443433659");
+          put("Carrie", "0006485456");
+        }
+      };
 
     Sorter<Book> sorter1 = new InsertionSorter<>();
     Sorter<Book> sorter2 = new SelectionSorter<>();
@@ -72,7 +73,7 @@ public class Main {
   /**
    * Adds each (title, ISBN) entry from {@code bookInfo} to {@code author}'s books.
    *
-   * @param author the author to add the books to
+   * @param author   the author to add the books to
    * @param bookInfo a map from book title to ISBN
    */
   public static void addBooks(Author author, Map<String, String> bookInfo) {

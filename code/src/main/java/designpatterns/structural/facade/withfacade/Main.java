@@ -1,6 +1,8 @@
 package designpatterns.structural.facade.withfacade;
 
-/** Demonstrates the Facade pattern by issuing a bill through a facade. */
+/**
+ * Demonstrates the Facade pattern by issuing a bill through a facade.
+ */
 public class Main {
 
   /**

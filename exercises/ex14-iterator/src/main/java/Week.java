@@ -1,19 +1,20 @@
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Exercise (Chapter 7: Collections) — making a class {@code Iterable}.
- *
+ * <p>
  * A class that implements {@code Iterable<E>} can be used in an enhanced
  * for-loop ("for-each"). {@code Week} already declares
  * {@code implements Iterable<String>}, but its {@link #iterator()} method is not
  * finished. Complete it so it yields the seven days in order (Sunday first).
  * Edit only this file.
- *
+ * <p>
  * How iteration works: {@code for (String day : week)} calls {@code week.iterator()}
  * once to get an {@code Iterator<String>}, then repeatedly calls {@code hasNext()}
  * and {@code next()} on it.
- *
+ * <p>
  * Relevant reading: Chapter 7. Collections.
  */
 public class Week implements Iterable<String> {
@@ -41,10 +42,27 @@ public class Week implements Iterable<String> {
     //         - next() returns the next day and advances, or throws
     //           java.util.NoSuchElementException if none remain.
     //       Replace the empty iterator below with an instance of your class.
-    return Collections.emptyIterator();
+
+    return new Iterator<String>() {
+      private int index = 0;
+      @Override
+      public boolean hasNext() {
+        return index < days.length;
+      }
+
+      @Override
+      public String next() {
+        if (!hasNext()) {
+          throw new NoSuchElementException();
+        }
+        return days[index++];
+      }
+    };
   }
 
-  /** Prints each day of the week, one per line. */
+  /**
+   * Prints each day of the week, one per line.
+   */
   public static void main(String[] args) {
     Week week = new Week();
     for (String day : week) {

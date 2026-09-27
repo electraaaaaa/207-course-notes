@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/** Tests for {@link Box}. Do NOT modify this file. */
+/**
+ * Tests for {@link Box}. Do NOT modify this file.
+ */
 class BoxTest {
 
   @Test

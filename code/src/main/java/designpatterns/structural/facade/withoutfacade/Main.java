@@ -6,7 +6,9 @@ import designpatterns.structural.facade.BillLogger;
 import designpatterns.structural.facade.BillPrinter;
 import designpatterns.structural.facade.FoodItem;
 
-/** Demonstrates issuing a bill by talking to each subsystem directly, WITHOUT a facade. */
+/**
+ * Demonstrates issuing a bill by talking to each subsystem directly, WITHOUT a facade.
+ */
 public class Main {
 
   /**

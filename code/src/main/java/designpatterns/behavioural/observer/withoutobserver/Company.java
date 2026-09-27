@@ -1,9 +1,13 @@
 package designpatterns.behavioural.observer.withoutobserver;
 
-/** A company. */
+/**
+ * A company.
+ */
 public class Company {
 
-  /** This Company's name. */
+  /**
+   * This Company's name.
+   */
   private final String name;
 
   /**
@@ -20,12 +24,12 @@ public class Company {
    *
    * @param sourceObject the parcel that is the object whose property has changed.
    * @param propertyName the name of the property that changed
-   * @param oldValue old value of the property
-   * @param newValue new value of the property
+   * @param oldValue     old value of the property
+   * @param newValue     new value of the property
    */
   public void update(Parcel sourceObject, String propertyName, String oldValue, String newValue) {
     System.out.println(
-        "Company " + this.name + " observed a change in " + propertyName + " of " + sourceObject);
+      "Company " + this.name + " observed a change in " + propertyName + " of " + sourceObject);
 
     System.out.println(oldValue + " has changed to " + newValue + ". ");
 

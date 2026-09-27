@@ -17,21 +17,21 @@ public class Main {
   public static void main(String[] args) {
 
     Map<String, String> bookInfo1 =
-        new HashMap<String, String>() {
-          {
-            put("Harry Potter", "1770893083");
-            put("Quidditch Through The Ages", "0385659768");
-            put("Fantastic Beasts", "1770891048");
-          }
-        };
+      new HashMap<String, String>() {
+        {
+          put("Harry Potter", "1770893083");
+          put("Quidditch Through The Ages", "0385659768");
+          put("Fantastic Beasts", "1770891048");
+        }
+      };
 
     Map<String, String> bookInfo2 =
-        new HashMap<String, String>() {
-          {
-            put("Carrie", "0006485456");
-            put("The Shining", "1443433659");
-          }
-        };
+      new HashMap<String, String>() {
+        {
+          put("Carrie", "0006485456");
+          put("The Shining", "1443433659");
+        }
+      };
 
     final Author author1 = new AuthorWithInsertionSortAndNaturalOrderDisplay("J.K. Rowling");
     final Author author2 = new AuthorWithInsertionSortAndReverseOrderDisplay("Stephen King");
@@ -61,7 +61,7 @@ public class Main {
   /**
    * Adds each (title, ISBN) entry from {@code bookInfo} to {@code author}'s books.
    *
-   * @param author the author to add the books to
+   * @param author   the author to add the books to
    * @param bookInfo a map from book title to ISBN
    */
   public static void addBooks(Author author, Map<String, String> bookInfo) {

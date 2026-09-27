@@ -8,7 +8,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/** Tests for {@link Word}. Do NOT modify this file. */
+/**
+ * Tests for {@link Word}. Do NOT modify this file.
+ */
 class WordTest {
 
   @Test
@@ -29,7 +31,7 @@ class WordTest {
   @Test
   void collectionsSortOrdersByLength() {
     List<Word> words =
-        new ArrayList<>(Arrays.asList(new Word("ccc"), new Word("a"), new Word("bb")));
+      new ArrayList<>(Arrays.asList(new Word("ccc"), new Word("a"), new Word("bb")));
     Collections.sort(words);
     assertEquals("a", words.get(0).getText());
     assertEquals("bb", words.get(1).getText());

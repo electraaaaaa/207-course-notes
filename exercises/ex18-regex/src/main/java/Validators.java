@@ -1,11 +1,11 @@
 /**
  * Exercise (Chapter 14: Regular Expressions) — writing patterns and matching.
- *
+ * <p>
  * Complete each method so it returns true exactly when the input matches the
  * described pattern. Use String's {@code matches(regex)} method, which returns
  * true iff the <em>whole</em> string matches the regular expression. Edit only
  * this file.
- *
+ * <p>
  * Relevant reading: 14.6. Regex in Java (and 14.4 for identifier patterns).
  */
 public class Validators {

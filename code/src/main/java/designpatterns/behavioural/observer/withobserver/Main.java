@@ -1,6 +1,8 @@
 package designpatterns.behavioural.observer.withobserver;
 
-/** Demonstrates parcel tracking implemented with the observer pattern. */
+/**
+ * Demonstrates parcel tracking implemented with the observer pattern.
+ */
 public class Main {
 
   /*

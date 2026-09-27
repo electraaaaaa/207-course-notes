@@ -1,8 +1,12 @@
 package designpatterns.creational.factory.shapes;
 
-/** A drawable shape. */
+/**
+ * A drawable shape.
+ */
 public interface Shape {
 
-  /** Draws this shape. */
+  /**
+   * Draws this shape.
+   */
   void draw();
 }

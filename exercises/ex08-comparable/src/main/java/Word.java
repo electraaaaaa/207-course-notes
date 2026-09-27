@@ -1,11 +1,11 @@
 /**
  * Exercise (Chapter 2: Classes) — ordering objects with {@code Comparable}.
- *
+ * <p>
  * Implementing {@code Comparable<Word>} lets Java sort and compare Words for you
  * (e.g. with {@code Collections.sort}). The class header already declares
  * {@code implements Comparable<Word>}; your job is to complete {@link
  * #compareTo(Word)} so Words are ordered by their length. Edit only this file.
- *
+ * <p>
  * Relevant reading: 2.5. Overloading / comparing objects.
  */
 public class Word implements Comparable<Word> {
@@ -32,12 +32,10 @@ public class Word implements Comparable<Word> {
    *
    * @param other the word to compare with
    * @return negative, zero, or positive as this word is shorter, the same
-   *     length, or longer than other
+   * length, or longer than other
    */
   @Override
   public int compareTo(Word other) {
-    // TODO: String has a .length() method. The difference of the two lengths is
-    //       already negative / zero / positive in the right cases.
-    return 0;
+    return this.text.length() - other.text.length();
   }
 }

@@ -2,7 +2,9 @@ package designpatterns.structural.adapter;
 
 import java.time.LocalDateTime;
 
-/** A simple legacy ticket with a basic set of functionalities. */
+/**
+ * A simple legacy ticket with a basic set of functionalities.
+ */
 public class Ticket {
 
   /*
@@ -18,7 +20,7 @@ public class Ticket {
   /**
    * Creates a ticket with the given details.
    *
-   * @param id the ticket identifier
+   * @param id   the ticket identifier
    * @param show the show name
    * @param date the date of the show
    * @param seat the seat label

@@ -1,12 +1,15 @@
 package designpatterns.creational.builder.withoutbuilder;
 
-/** A pizza constructed using telescoping constructors. */
+/**
+ * A pizza constructed using telescoping constructors.
+ */
 public class Pizza {
   private final String size;
   private final boolean cheese;
   private final boolean pepperoni;
 
   // Constructor with only size
+
   /**
    * Creates a pizza with only a size.
    *
@@ -17,10 +20,11 @@ public class Pizza {
   }
 
   // Constructor with size and cheese
+
   /**
    * Creates a pizza with a size and cheese option.
    *
-   * @param size the pizza size
+   * @param size   the pizza size
    * @param cheese whether the pizza has cheese
    */
   public Pizza(String size, boolean cheese) {
@@ -28,11 +32,12 @@ public class Pizza {
   }
 
   // Constructor with all fields
+
   /**
    * Creates a pizza with all fields.
    *
-   * @param size the pizza size
-   * @param cheese whether the pizza has cheese
+   * @param size      the pizza size
+   * @param cheese    whether the pizza has cheese
    * @param pepperoni whether the pizza has pepperoni
    */
   public Pizza(String size, boolean cheese, boolean pepperoni) {

@@ -3,10 +3,14 @@ package designpatterns.behavioural.observer.withobserver;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-/** A customer. */
+/**
+ * A customer.
+ */
 public class Customer implements PropertyChangeListener {
 
-  /** This Customer's name. */
+  /**
+   * This Customer's name.
+   */
   private final String name;
 
   /**
@@ -25,12 +29,12 @@ public class Customer implements PropertyChangeListener {
   public void propertyChange(PropertyChangeEvent evt) {
 
     System.out.println(
-        "Customer "
-            + this.name
-            + " observed a change in "
-            + evt.getPropertyName()
-            + " of "
-            + evt.getSource());
+      "Customer "
+        + this.name
+        + " observed a change in "
+        + evt.getPropertyName()
+        + " of "
+        + evt.getSource());
 
     System.out.println(evt.getOldValue() + " has changed to " + evt.getNewValue() + ". ");
 

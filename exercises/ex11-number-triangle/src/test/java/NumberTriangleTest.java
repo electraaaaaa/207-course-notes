@@ -1,9 +1,12 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 
-/** Tests for {@link NumberTriangle}. Do NOT modify this file. */
+/**
+ * Tests for {@link NumberTriangle}. Do NOT modify this file.
+ */
 class NumberTriangleTest {
 
   @Test
@@ -18,7 +21,9 @@ class NumberTriangleTest {
     assertEquals(47, mt.retrieve("lr"));
   }
 
-  /** The nodes at mt.left.right and mt.right.left are the same object. */
+  /**
+   * The nodes at mt.left.right and mt.right.left are the same object.
+   */
   @Test
   void aliasingTree() throws IOException {
     NumberTriangle mt = NumberTriangle.loadTriangle("input_tree.txt");

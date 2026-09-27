@@ -3,21 +3,22 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Chapter 2: Classes in Java](#chapter-2-classes-in-java)
-  - [2.1. Classes](#21-classes)
-  - [2.2. Variables in classes](#22-variables-in-classes)
-  - [2.3. Visibility and Access Modifiers](#23-visibility-and-access-modifiers)
-  - [2.4. Constructors](#24-constructors)
-  - [2.5. Overloading methods](#25-overloading-methods)
-  - [2.6. Overriding methods](#26-overriding-methods)
-  - [2.7. Class (static) methods](#27-class-static-methods)
-  - [2.8 Keyword `final`](#28-keyword-final)
-  - [2.9. Exercises](#29-exercises)
+    - [2.1. Classes](#21-classes)
+    - [2.2. Variables in classes](#22-variables-in-classes)
+    - [2.3. Visibility and Access Modifiers](#23-visibility-and-access-modifiers)
+    - [2.4. Constructors](#24-constructors)
+    - [2.5. Overloading methods](#25-overloading-methods)
+    - [2.6. Overriding methods](#26-overriding-methods)
+    - [2.7. Class (static) methods](#27-class-static-methods)
+    - [2.8 Keyword `final`](#28-keyword-final)
+    - [2.9. Exercises](#29-exercises)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Chapter 2: Classes in Java
 
 ## 2.1. Classes
+
 Classes in Java are similar to those in Python:
 they consist of attributes and methods, both private and public.
 We can inherit from other classes, override methods, and define constructors.
@@ -28,18 +29,19 @@ in-line explanations which you may find helpful. You'll want to look at this
 file to get a better understanding of the syntax that we use.
 
 ## 2.2. Variables in classes
+
 Unlike Python, we have to declare variables before using them in Java.
 There are two kinds of variables we can declare for classes:
 
 1. **Instance variables**: These are like the attributes you're familiar
-  with from Python. Every instance of the class will contain its own instance
-  of each of these variables. They come into existence when the instance
-  is constructed (using the `new` keyword).
+   with from Python. Every instance of the class will contain its own instance
+   of each of these variables. They come into existence when the instance
+   is constructed (using the `new` keyword).
 2. **Class variables**: Also known as **static variables**, all instances of
-  a class share a *single* instance of each class variable. Updating this
-  variable in one instance of a class will reflect across every instance
-  of the class. This is useful, for example, if we want the instances to
-  accumulate a value together.
+   a class share a *single* instance of each class variable. Updating this
+   variable in one instance of a class will reflect across every instance
+   of the class. This is useful, for example, if we want the instances to
+   accumulate a value together.
 
 ## 2.3. Visibility and Access Modifiers
 
@@ -58,6 +60,7 @@ Additional information about access modifiers in Java can be found at
 https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html.
 
 ## 2.4. Constructors
+
 Similar to the `__init__` method in Python, we have constructors in Java.
 These are methods with no return type (not even void),
 which get called whenever a new instance of a class is created.
@@ -116,15 +119,15 @@ several steps happen in a specific order:
 4. The constructor is called, which may further modify the instance variables.
 5. If the class extends another class, the superclass constructor is called _first_;
    we'll talk more about this in the next chapter about relationships between classes.
-    
+
 This order ensures that all inherited and declared fields are properly
 initialized before your constructor logic runs.
 
 > This is similar to Python, but differs in that steps 2 and 3 don't take place in Python — the call to
 > `__init__`, which is equivalent to step 4, takes care of initializing all instance attributes.
 
-
 ## 2.5. Overloading methods
+
 When we define multiple constructors, we are **overloading** the constructor.
 We can do this for any method, not just our constructors. In Python,
 we cannot overload methods, but we can provide default parameters. For instance:
@@ -156,6 +159,7 @@ in our constructor, the `this` was necessary to distinguish between the instance
 variable `name` and the parameter `name`.
 
 ## 2.6. Overriding methods
+
 In Python, we could re-define a method from a parent class in order to override it.
 We do a similar thing in Java, but we also include the `@Override` annotation.
 This lets Java (and any reader of our code) know that we're overriding an
@@ -164,6 +168,7 @@ signature for the overridden method — this way, we can be certain that we don'
 have any silly typos in our method or the incorrect argument types!
 
 ### 2.6.1. toString
+
 One common method that we'll want to override is the `toString` method.
 This is the Java equivalent of the `__str__` special method in Python:
 a method that gives the string representation of our object.
@@ -178,6 +183,7 @@ public String toString(){
 ```
 
 ### 2.6.2. equals
+
 Another common method inherited from `Object` is the `equals` method:
 this is equivalent to Python's `__eq__` method.
 Note that this method is **NOT** called implicitly in Java:
@@ -195,11 +201,13 @@ The designer of a class gets to decide what has to be true in order for two
 instances to be considered "equals". This sounds trivial to implement, but
 there are a number of details to be handled. Any implementation of it must
 obey these properties:
+
 1. **Symmetry**: For non-null references `a` and `b`, `a.equals(b)` if and only if `b.equals(a)`
 2. **Reflexivity**:  `a.equals(a)` must be true
 3. **Transitivity**: If `a.equals(b)` and `b.equals(c)`, then `a.equals(c)`
 
 The `equals` method will often look as follows:
+
 ```java
 @Override
 public boolean equals(Object obj) {
@@ -230,6 +238,7 @@ If you change the type of the parameter from `Object` to `Monster`, what happens
 You should see some helpful hints from IntelliJ about what problem this will cause.
 
 ### 2.6.3. hashCode
+
 Whenever we override the equals method, we will often want to override another
 inherited method called "hashCode". The hash code of an object is an integer
 value that obeys this property:
@@ -255,12 +264,14 @@ As far as we're concerned, the hashCode generated by `Object` is random!
 We have no idea what the value is.
 
 ## 2.7. Class (static) methods
+
 Just as we have class (static) variables, we can have class methods.
 Again, we use the `static` keyword to declare that a method is a class method.
 Since a class method is associated with the class and not the instance,
 we call it by prefixing it with the class name.
 
 For example, suppose we have the following class method:
+
 ```java
 public static int population(){
     return MyClass.count;
@@ -272,15 +283,17 @@ If we had an instance of MyClass called `m1`, we could also call `m1.population(
 but this seems a bit strange since the `population` method doesn't depend on `m1` itself.
 
 Although an instance method can reference a class variable (or call a class method),
-the opposite is not true.  A class method **cannot** access an instance variable or
+the opposite is not true. A class method **cannot** access an instance variable or
 call an instance method directly.
 
 So in our example above, the following would not compile:
+
 ```java
 public static int population(){
     return this.some_attribute;
 }
 ```
+
 There is no "this" when you are in a class method!
 
 The only way for a class method to access an instance variable or call
@@ -294,9 +307,11 @@ The `final` keyword in Java is used to restrict modification.
 It can be applied to variables, methods, and classes:
 
 Final variables cannot be reassigned after initialization.
+
 ```java
 final int MAX_SIZE = 100;
 ```
+
 For example, `MAX_SIZE` above cannot be changed. This is often used for constants,
 especially in combination with `static`.
 

@@ -53,9 +53,11 @@ public class Extractor {
    * least two letters. This is the same shape as {@code Validators.isEmail}.
    */
   private static final Pattern EMAIL =
-      Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}");
+    Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}");
 
-  /** The text used to replace each email address found by {@link #maskEmails(String)}. */
+  /**
+   * The text used to replace each email address found by {@link #maskEmails(String)}.
+   */
   private static final String MASK = "***";
 
   /**

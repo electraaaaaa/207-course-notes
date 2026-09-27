@@ -3,7 +3,9 @@ package designpatterns.structural.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Adapter that makes a ticket tradable using delegation. */
+/**
+ * Adapter that makes a ticket tradable using delegation.
+ */
 public class ObjectTicketAdapter implements Tradable {
 
   /*
@@ -60,7 +62,9 @@ public class ObjectTicketAdapter implements Tradable {
     return tradeHistory;
   }
 
-  /** Reverts the most recent trade, restoring the previous owner. */
+  /**
+   * Reverts the most recent trade, restoring the previous owner.
+   */
   public void tradeUndo() {
     int lastTrade = getTradeHistory().size() - 1;
     String tradeLogOfLastTrade = getTradeHistory().get(lastTrade);

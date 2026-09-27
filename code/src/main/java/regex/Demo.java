@@ -3,7 +3,9 @@ package regex;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** A demo of Java regular expressions. */
+/**
+ * A demo of Java regular expressions.
+ */
 public class Demo {
 
   /**

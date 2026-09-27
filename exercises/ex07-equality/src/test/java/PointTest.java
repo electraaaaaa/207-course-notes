@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-/** Tests for {@link Point}. Do NOT modify this file. */
+/**
+ * Tests for {@link Point}. Do NOT modify this file.
+ */
 class PointTest {
 
   @Test

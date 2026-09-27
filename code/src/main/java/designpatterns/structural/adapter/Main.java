@@ -3,7 +3,9 @@ package designpatterns.structural.adapter;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-/** Demonstrates the Adapter pattern using object and class ticket adapters. */
+/**
+ * Demonstrates the Adapter pattern using object and class ticket adapters.
+ */
 public class Main {
 
   /**

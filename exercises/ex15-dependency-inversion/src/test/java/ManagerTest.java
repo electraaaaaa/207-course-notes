@@ -2,7 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** Tests for {@link Manager}. Do NOT modify this file. */
+/**
+ * Tests for {@link Manager}. Do NOT modify this file.
+ */
 class ManagerTest {
 
   @Test

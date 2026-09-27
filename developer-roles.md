@@ -3,9 +3,9 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Developer Roles: A Course Roadmap](#developer-roles-a-course-roadmap)
-  - [The roles](#the-roles)
-  - [Where the roles appear in the course](#where-the-roles-appear-in-the-course)
-  - [Why learn the roles first](#why-learn-the-roles-first)
+    - [The roles](#the-roles)
+    - [Where the roles appear in the course](#where-the-roles-appear-in-the-course)
+    - [Why learn the roles first](#why-learn-the-roles-first)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -16,8 +16,8 @@ what the user sees, writing the logic that carries out each task, fetching and
 storing data, and wiring everything together so it runs. On a software team, these
 kinds of work are often divided into **responsibilities**.
 
-In this course, we describe groups of related responsibilities as developer
-**roles**. Think of them as hats that a developer can wear, not permanent job
+In this course, we describe groups of related responsibilities as developer **roles**. Think of them as hats that a
+developer can wear, not permanent job
 titles or a recommendation that one teammate should own each part forever. The
 names and boundaries of roles vary across software teams, and every member of a
 course project team should understand these roles and will likely contribute to
@@ -31,12 +31,12 @@ have played each part yourself.
 
 ## The roles
 
-| Role | Responsible for |
-|------|-----------------|
-| **Frontend Developer** | the user interface: windows, buttons, and reacting to user input |
-| **Data Access Engineer** | getting data in and out: calling web APIs, reading and writing files, and saving/loading the program's data |
-| **Use Case Engineer** | the application's logic: the steps that carry out each thing the program can do, and the interfaces those steps depend on |
-| **Integrator** | assembling the pieces: creating the objects and connecting them so the finished program runs |
+| Role                     | Responsible for                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| **Frontend Developer**   | the user interface: windows, buttons, and reacting to user input                                                          |
+| **Data Access Engineer** | getting data in and out: calling web APIs, reading and writing files, and saving/loading the program's data               |
+| **Use Case Engineer**    | the application's logic: the steps that carry out each thing the program can do, and the interfaces those steps depend on |
+| **Integrator**           | assembling the pieces: creating the objects and connecting them so the finished program runs                              |
 
 Some responsibilities also cut **across** the whole application rather than
 belonging to a single layer:
@@ -53,13 +53,13 @@ belonging to a single layer:
 This overview comes first so that you can see what the individual topics are
 building toward. The roles become concrete as the course progresses:
 
-| Course material | Main perspective |
-| --- | --- |
-| [Working with Git](00-introduction-to-git.md) and [Code Style and Documentation](code-style-and-documentation.md) | collaborating, reviewing code, and maintaining a healthy shared codebase |
-| [Graphical User Interfaces](04-GUIs-with-swing.md) | building the view and responding to user input as a Frontend Developer |
-| [APIs, JSON, and Files](apis-json-and-files.md) | bringing information into and out of the program as a Data Access Engineer |
-| [Program Specification](08-program-specification.md) | identifying user goals and specifying the application logic implemented by a Use Case Engineer |
-| [Layered Architectures](10-introduction-to-layered-architectures.md) and [Clean Architecture](11-clean-architecture.md) | connecting the roles while controlling their dependencies as an Integrator |
+| Course material                                                                                                         | Main perspective                                                                               |
+|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [Working with Git](00-introduction-to-git.md) and [Code Style and Documentation](code-style-and-documentation.md)       | collaborating, reviewing code, and maintaining a healthy shared codebase                       |
+| [Graphical User Interfaces](04-GUIs-with-swing.md)                                                                      | building the view and responding to user input as a Frontend Developer                         |
+| [APIs, JSON, and Files](apis-json-and-files.md)                                                                         | bringing information into and out of the program as a Data Access Engineer                     |
+| [Program Specification](08-program-specification.md)                                                                    | identifying user goals and specifying the application logic implemented by a Use Case Engineer |
+| [Layered Architectures](10-introduction-to-layered-architectures.md) and [Clean Architecture](11-clean-architecture.md) | connecting the roles while controlling their dependencies as an Integrator                     |
 
 Testing is a cross-cutting responsibility and accompanies each of these topics
 rather than appearing in only one place.

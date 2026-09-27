@@ -3,13 +3,13 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [APIs, JSON, and Files](#apis-json-and-files)
-  - [Calling a web API](#calling-a-web-api)
-  - [JSON](#json)
-  - [Reading and writing files](#reading-and-writing-files)
-  - [Saving and loading your data](#saving-and-loading-your-data)
-  - [A complete example you can run](#a-complete-example-you-can-run)
-  - [Exercise](#exercise)
-  - [Further reading](#further-reading)
+    - [Calling a web API](#calling-a-web-api)
+    - [JSON](#json)
+    - [Reading and writing files](#reading-and-writing-files)
+    - [Saving and loading your data](#saving-and-loading-your-data)
+    - [A complete example you can run](#a-complete-example-you-can-run)
+    - [Exercise](#exercise)
+    - [Further reading](#further-reading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -107,8 +107,8 @@ code that calls an API, it is easy to hit these limits by accident — for examp
 by calling the API inside a loop or re-running a program many times.
 
 To avoid trouble: request only what you need, cache results you'll reuse, and,
-where possible, develop against a **saved copy of a response** in a local file
-(see below) rather than hitting the live API on every run.
+where possible, develop against a **saved copy of a response** in a local file (see below) rather than hitting the live
+API on every run.
 
 ## JSON
 
@@ -117,8 +117,8 @@ representing structured data. It is what most web APIs use for their responses,
 and it's a convenient format for saving your own data to a file. If you know
 Python dictionaries and lists, JSON will look very familiar.
 
-A JSON value is one of: a **string**, a **number**, `true`/`false`, `null`, an
-**array** (an ordered list, in `[ ]`), or an **object** (a set of key–value
+A JSON value is one of: a **string**, a **number**, `true`/`false`, `null`, an **array** (an ordered list, in `[ ]`), or
+an **object** (a set of key–value
 pairs, in `{ }`). Objects and arrays can nest:
 
 ```json
@@ -211,8 +211,8 @@ declare.
 
 ## Saving and loading your data
 
-Putting the last two sections together gives us a way to make a program's data
-**persist** between runs: convert your objects to JSON and write that to a file
+Putting the last two sections together gives us a way to make a program's data **persist** between runs: convert your
+objects to JSON and write that to a file
 to *save*; read the file and parse the JSON to *load*.
 
 Suppose we have a simple entity:

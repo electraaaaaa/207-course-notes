@@ -9,7 +9,9 @@ import java.util.List;
  */
 public class NaturalOrderDisplayer<T> implements Displayer<T> {
 
-  /** Displays items of the list in natural order. */
+  /**
+   * Displays items of the list in natural order.
+   */
   @Override
   public void display(List<T> list) {
 

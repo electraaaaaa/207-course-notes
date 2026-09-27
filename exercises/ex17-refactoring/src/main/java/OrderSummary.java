@@ -50,8 +50,8 @@ public class OrderSummary {
    * is then charged on the discounted amount. An item costing $100 or more counts
    * as a "premium" item.
    *
-   * @param customer the customer's name
-   * @param itemNames the name of each item, in order
+   * @param customer   the customer's name
+   * @param itemNames  the name of each item, in order
    * @param itemPrices the price of each item, in the same order as {@code itemNames}
    * @return the formatted summary, with lines separated by {@code \n}
    */

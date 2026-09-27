@@ -5,7 +5,10 @@ import designpatterns.creational.factory.withabstractfactory.shapefactories.Circ
 import designpatterns.creational.factory.withabstractfactory.shapefactories.ShapeFactory;
 
 // Client code
-/** Demonstrates creating shapes using the abstract factory pattern. */
+
+/**
+ * Demonstrates creating shapes using the abstract factory pattern.
+ */
 public class Main {
   /**
    * Creates a shape via a concrete factory and draws it.

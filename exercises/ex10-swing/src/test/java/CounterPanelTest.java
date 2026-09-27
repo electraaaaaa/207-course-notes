@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests for {@link CounterPanel}. Do NOT modify this file.
- *
+ * <p>
  * These build the panel and click the button programmatically with
  * {@code doClick()} — no window is shown, so they run without a display.
  */
